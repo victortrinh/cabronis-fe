@@ -1,0 +1,14 @@
+{
+  "translation": {
+    "start game": "Get started",
+    "home": "Home",
+    "language": "Language",
+    "settings": "Settings",
+    "dark-mode": "Dark mode",
+    "go-back": "Go back to homepage",
+    "not-found": "Looks like you missed your shot just like you always do in mölkky. It's fine, just go back and we'll keep this a secret.",
+    "cancel-game": "Cancel",
+    "reset-game": "Reset the score",
+    "start-game": "Start the game"
+  }
+}
