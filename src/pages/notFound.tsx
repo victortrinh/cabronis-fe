@@ -9,7 +9,7 @@ const NotFound = () => {
   const [t] = useTranslation();
 
   return (
-    <MainContainer>
+    <MainContainer $verticalCentered $horizontalCentered>
       <StyledNotFoundPage>
         <div className="title">404</div>
         <div className="text">{t("not-found")}</div>

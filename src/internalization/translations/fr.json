@@ -1,14 +1,19 @@
 {
   "translation": {
-    "start game": "Commencer",
     "home": "Accueil",
     "language": "Langue",
     "settings": "Paramètres",
     "dark-mode": "Mode sombre",
     "go-back": "Retour à la page d'accueil",
-    "not-found": "On dirait que vous avez raté votre coup, comme vous le faîtes toujours à mölkky. C'est correct, revenez à l'arrière et nous garderons ça secret.",
-    "cancel-game": "Annuler",
-    "reset-game": "Réinitialiser le score",
-    "start-game": "Commencer le jeu"
+    "not-found": "On dirait que vous avez BRISER QUELQUE CHOSE. C'est correct, revenez à l'arrière et nous garderons ça secret.",
+    "shop": "Boutique",
+    "live": "Live",
+    "faq": "FAQ",
+    "account": "Compte",
+    "under-construction-title": "Page en construction",
+    "under-construction-text": "Désolé, nous faisons du travail sur le site!",
+    "wishlist": "Favoris",
+    "cart": "Chariot",
+    "see-more": "En voir plus"
   }
 }

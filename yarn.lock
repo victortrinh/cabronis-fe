@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@12emake/design-system@^0.3.2":
-  version "0.3.2"
-  resolved "https://registry.yarnpkg.com/@12emake/design-system/-/design-system-0.3.2.tgz#484d17ed0de9a1b4f628ff717e38b3f2525f6213"
-  integrity sha512-jfy6cOJ37ozyK+trgCK3EKFWUx/VJhAsSTJXPPTBCm8dKMhoBz6uzOJ9iZngSEtuVnS+Tta8fXKN4hivwCJN0Q==
+"@12emake/design-system@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@12emake/design-system/-/design-system-0.4.0.tgz#78b1aff4ef3404f295f4afaae763a86d4f3820d9"
+  integrity sha512-5oV5PPNbCHxxTA7ZMaI10mu1lHPwrT6cuBy5pGQdsAQmfZPv9VlleADru/OM9iDczdTHuHibqNg+Z/Ri4JqgqA==
   dependencies:
     "@material-ui/core" "^4.11.0"
     "@material-ui/icons" "^4.9.1"
@@ -3402,6 +3402,11 @@ class-utils@^0.3.5:
     define-property "^0.2.5"
     isobject "^3.0.0"
     static-extend "^0.1.1"
+
+classnames@^2.2.6:
+  version "2.2.6"
+  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
+  integrity sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
 
 clean-css@^4.2.3:
   version "4.2.3"
@@ -7709,6 +7714,11 @@ mkdirp@^1.0.3, mkdirp@^1.0.4:
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-1.0.4.tgz#3eb5ed62622756d79a5f0e2a221dfebad75c2f7e"
   integrity sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==
 
+moment@^2.24.0:
+  version "2.29.1"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.1.tgz#b2be769fa31940be9eeea6469c075e35006fa3d3"
+  integrity sha512-kHmoybcPV8Sqy59DwNDY3Jefr64lK/by/da0ViFcuA4DH0vQg5Q6Ze5VimxkfQNSC+Mls/Kx53s7TjP1RhFEDQ==
+
 move-concurrently@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/move-concurrently/-/move-concurrently-1.0.1.tgz#be2c005fda32e0b29af1f05d7c4b33214c701f92"
@@ -9448,6 +9458,11 @@ react-i18next@^11.7.3:
     "@babel/runtime" "^7.3.1"
     html-parse-stringify2 "2.0.1"
 
+react-icons@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-4.2.0.tgz#6dda80c8a8f338ff96a1851424d63083282630d0"
+  integrity sha512-rmzEDFt+AVXRzD7zDE21gcxyBizD/3NqjbX6cmViAgdqfJ2UiLer8927/QhhrXQV7dEj/1EGuOTPp7JnLYVJKQ==
+
 react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.0, react-is@^16.8.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
@@ -9457,6 +9472,14 @@ react-is@^17.0.1:
   version "17.0.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.1.tgz#5b3531bd76a645a4c9fb6e693ed36419e3301339"
   integrity sha512-NAnt2iGDXohE5LI7uBnLnqvLQMtzhkiAOLXTmv+qnF9Ky7xAPcX8Up/xWIhxvLVGJvuLiNc4xQLtuqDRzb4fSA==
+
+react-pwa-install-ios@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/react-pwa-install-ios/-/react-pwa-install-ios-1.4.1.tgz#3848a9992761094823c0cae95681d9e460477f0d"
+  integrity sha512-gBkzHF+FgNR/ZU2GwW3R7dwJtNVI42OkJI7FLiuvF5Yq7fU6x8A+JdAxcsVxkttriAUQv7b8EF7mayayBxe8dA==
+  dependencies:
+    classnames "^2.2.6"
+    moment "^2.24.0"
 
 react-refresh@^0.8.3:
   version "0.8.3"
@@ -9567,6 +9590,13 @@ react-transition-group@^4.4.0:
     dom-helpers "^5.0.1"
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
+
+react-twitch-embed-video@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/react-twitch-embed-video/-/react-twitch-embed-video-3.0.0.tgz#09b728e3886ce926cc91ef3a0e41fccec411bd1a"
+  integrity sha512-kKB7GoPjnoWq4hbD3lue7wZAeZ3Pa3XbI7965q4bYLqdvj3sGJEGsDlyqNiFSfbCvYFRhNtYk+zykrMxrEhY7w==
+  dependencies:
+    window-or-global "^1.0.1"
 
 react@^17.0.1:
   version "17.0.1"
@@ -11712,6 +11742,11 @@ which@^2.0.1, which@^2.0.2:
   integrity sha512-BLI3Tl1TW3Pvl70l3yq3Y64i+awpwXqsGBYWkkqMtnbXgrMD+yj7rhW0kuEDxzJaYXGjEW5ogapKNMEKNMjibA==
   dependencies:
     isexe "^2.0.0"
+
+window-or-global@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/window-or-global/-/window-or-global-1.0.1.tgz#dbe45ba2a291aabc56d62cf66c45b7fa322946de"
+  integrity sha1-2+RboqKRqrxW1iz2bEW3+jIpRt4=
 
 word-wrap@^1.2.3, word-wrap@~1.2.3:
   version "1.2.3"

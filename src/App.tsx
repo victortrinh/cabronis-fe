@@ -1,10 +1,14 @@
+import "./App.css";
+
 import { HashRouter, Route, Switch } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { ThemeProvider, useMediaQuery } from "@12emake/design-system";
 import { getDarkMode, setDarkMode } from "./storage/darkModeOn";
 
 import BottomNavigationBar from "./components/navigation/bottomNavigationBar";
+import { IconContext } from "react-icons/lib";
 import { NavigationBar } from "./components/navigation/navigationBar";
+import PwaInstallPopupIOS from "react-pwa-install-ios";
 import Settings from "./pages/settings";
 import { getLanguage } from "./storage/language";
 import i18next from "i18next";
@@ -16,7 +20,9 @@ const App = () => {
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
   const [loading, setLoading] = useState(true);
   const [darkModeOn, setDarkModeOn] = useState(prefersDarkMode);
-  const [height, setHeight] = React.useState(window.innerHeight);
+  const [height, setHeight] = useState(window.innerHeight);
+  const [language, setLanguage] = useState("en");
+  const LOGO_IMAGE_NAME = "favicon-32x32.png";
 
   useEffect(() => {
     const handleResize = () => setHeight(window.innerHeight);
@@ -39,6 +45,7 @@ const App = () => {
         getLanguage().then((value) => {
           if (i18next.language !== value) {
             i18next.changeLanguage(value);
+            setLanguage(value);
           }
         })
       )
@@ -55,28 +62,37 @@ const App = () => {
   }
 
   return (
-    <ThemeProvider theme={darkModeOn ? "darkUnderTheLake" : "underTheLake"}>
-      <HashRouter>
-        <StyledContainer $height={height}>
-          <NavigationBar />
-          <Switch>
-            <Route
-              exact
-              path={settings.path}
-              render={() => (
-                <Settings
-                  darkModeOn={darkModeOn}
-                  toggleDarkModeOn={toggleDarkModeOn}
-                />
-              )}
+    <ThemeProvider theme={darkModeOn ? "darkBlackWhite" : "blackWhite"}>
+      <IconContext.Provider
+        value={{ style: { verticalAlign: "middle" }, size: "18px" }}
+      >
+        <HashRouter>
+          <StyledContainer $height={height}>
+            <PwaInstallPopupIOS
+              delay={0}
+              lang={language}
+              appIcon={`${process.env.PUBLIC_URL}/${LOGO_IMAGE_NAME}`}
             />
-            {routes.map(({ key, ...props }) => (
-              <Route key={key} {...props} />
-            ))}
-          </Switch>
-          <BottomNavigationBar />
-        </StyledContainer>
-      </HashRouter>
+            <NavigationBar />
+            <Switch>
+              <Route
+                exact
+                path={settings.path}
+                render={() => (
+                  <Settings
+                    darkModeOn={darkModeOn}
+                    toggleDarkModeOn={toggleDarkModeOn}
+                  />
+                )}
+              />
+              {routes.map(({ key, ...props }) => (
+                <Route key={key} {...props} />
+              ))}
+            </Switch>
+            <BottomNavigationBar />
+          </StyledContainer>
+        </HashRouter>
+      </IconContext.Provider>
     </ThemeProvider>
   );
 };

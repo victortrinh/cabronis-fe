@@ -9,7 +9,9 @@ export const MainContainer: React.FunctionComponent<
 > = (props) => <StyledContainer {...props} />;
 
 type StyledContainerProps = {
-  $centered?: boolean;
+  $verticalCentered?: boolean;
+  $horizontalCentered?: boolean;
+  $isMobile?: boolean;
 };
 
 const StyledContainer = styled(Container)<StyledContainerProps>`
@@ -21,9 +23,21 @@ const StyledContainer = styled(Container)<StyledContainerProps>`
   padding-bottom: 20px;
 
   ${(props) =>
-    props.$centered &&
+    props.$verticalCentered &&
     css`
       justify-content: center;
+    `}
+
+  ${(props) =>
+    props.$horizontalCentered &&
+    css`
       align-items: center;
+    `}
+
+  ${(props) =>
+    props.$isMobile &&
+    css`
+      height: 100vh;
+      overflow: auto;
     `}
 `;

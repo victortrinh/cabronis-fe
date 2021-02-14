@@ -9,13 +9,13 @@ import {
   ListItemText,
   ListSubheader,
   Switch,
+  useMediaQuery,
+  useTheme,
 } from "@12emake/design-system";
+import { FaChevronDown, FaChevronUp, FaGlobeAmericas } from "react-icons/fa";
 import React, { MouseEvent, useState } from "react";
 
-import ExpandLessIcon from "@material-ui/icons/ExpandLess";
-import ExpandMoreMore from "@material-ui/icons/ExpandMore";
-import FormatPaintIcon from "@material-ui/icons/FormatPaint";
-import LanguageIcon from "@material-ui/icons/Language";
+import { AiFillFormatPainter } from "react-icons/ai";
 import { MainContainer } from "../components/shared/mainContainer";
 import i18next from "i18next";
 import { setLanguage } from "../storage/language";
@@ -33,6 +33,8 @@ const Settings: React.FC<SettingsProps> = ({
 }) => {
   const [openLanguageCollapse, setOpenLanguageCollapse] = useState(false);
   const [t] = useTranslation();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   const handleClick = () => {
     setOpenLanguageCollapse(!openLanguageCollapse);
@@ -50,14 +52,18 @@ const Settings: React.FC<SettingsProps> = ({
       <Grid container justify="center" alignItems="center">
         <Grid item xs={12} sm={12} md={6}>
           <StyledList
-            subheader={<ListSubheader>{t("settings")}</ListSubheader>}
+            subheader={
+              !isMobile ? (
+                <ListSubheader>{t("settings")}</ListSubheader>
+              ) : undefined
+            }
           >
             <ListItem button onClick={handleClick}>
               <ListItemIcon>
-                <LanguageIcon />
+                <FaGlobeAmericas />
               </ListItemIcon>
               <ListItemText primary={t("language")} />
-              {openLanguageCollapse ? <ExpandLessIcon /> : <ExpandMoreMore />}
+              {openLanguageCollapse ? <FaChevronUp /> : <FaChevronDown />}
             </ListItem>
             <Collapse in={openLanguageCollapse} timeout="auto" unmountOnExit>
               <List disablePadding>
@@ -80,15 +86,15 @@ const Settings: React.FC<SettingsProps> = ({
               </List>
             </Collapse>
             <Divider />
-            <ListItem>
+            <ListItem onClick={toggleDarkModeOn}>
               <ListItemIcon>
-                <FormatPaintIcon />
+                <AiFillFormatPainter />
               </ListItemIcon>
               <ListItemText primary={t("dark-mode")} />
               <ListItemSecondaryAction>
                 <Switch
+                  color="primary"
                   edge="end"
-                  onChange={toggleDarkModeOn}
                   checked={darkModeOn}
                   inputProps={{ "aria-labelledby": "switch-list-label-wifi" }}
                 />

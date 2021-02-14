@@ -1,0 +1,12 @@
+body,
+html {
+  font-family: "Mulish", sans-serif !important;
+}
+
+.MuiTypography-root {
+  font-family: "Mulish", sans-serif;
+}
+
+button {
+  font-family: "Mulish", sans-serif;
+}

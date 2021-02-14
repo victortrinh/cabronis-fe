@@ -1,5 +1,5 @@
-import Home from "../../pages/home";
 import { Route } from "../route";
+import Home from "../../pages/home/home";
 
 const home: Route = {
   key: "home",
