@@ -44,7 +44,7 @@ export const Shop: React.FunctionComponent<Props> = ({ limit }) => {
 
   const innerContainer = (
     <Container container justify="center" alignItems="center">
-      {limit && <Title>{t("shop")}</Title>}
+      {limit && <Title className="title">{t("shop")}</Title>}
       <GridList
         className="card-list"
         cellHeight="auto"
@@ -84,6 +84,11 @@ export const Shop: React.FunctionComponent<Props> = ({ limit }) => {
 const Container = styled(Grid)`
   margin-top: ${lgSpacing};
   margin-bottom: ${lgSpacing};
+  display: block;
+
+  .title {
+    text-align: center;
+  }
 `;
 
 type StyledCardProps = {
