@@ -16,6 +16,7 @@ import styled, { css } from "styled-components";
 
 import { NoDecorationLink } from "../shared/noDecorationLink";
 import React from "react";
+import cart from "../../routes/pages/cart";
 import faq from "../../routes/pages/faq";
 import { lightBlack } from "../../common/colors";
 import settings from "../../routes/pages/settings";
@@ -44,7 +45,7 @@ export const NavigationBar: React.FC = () => {
                 {t("live")}
               </Button>
             </NoDecorationLink>
-            <NoDecorationLink to={shop.key}>
+            <NoDecorationLink to={`/${shop.key}`}>
               <Button color={isDark ? "primary" : "secondary"} variant="text">
                 {t("shop")}
               </Button>
@@ -89,26 +90,26 @@ export const NavigationBar: React.FC = () => {
         </StyledLogoContainer>
         <Hidden smDown>
           <div className="right-side">
-            <StyledLink to={wishlist.key}>
+            <StyledLink to={`/${wishlist.key}`}>
               <Button
                 startIcon={<AiOutlineStar />}
                 color={isDark ? "primary" : "secondary"}
                 variant="text"
               />
             </StyledLink>
-            <StyledLink to={faq.key}>
+            <StyledLink to={`/${cart.key}`}>
               <Button
                 startIcon={<AiOutlineShopping />}
                 color={isDark ? "primary" : "secondary"}
                 variant="text"
               />
             </StyledLink>
-            <NoDecorationLink to={faq.key}>
+            <NoDecorationLink to={`/${faq.key}`}>
               <Button color={isDark ? "primary" : "secondary"} variant="text">
                 {t("faq")}
               </Button>
             </NoDecorationLink>
-            <NoDecorationLink to={settings.key}>
+            <NoDecorationLink to={`/${settings.key}`}>
               <Button color={isDark ? "primary" : "secondary"} variant="text">
                 {t("settings")}
               </Button>

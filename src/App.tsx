@@ -1,6 +1,6 @@
 import "./App.css";
 
-import { HashRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { ThemeProvider, useMediaQuery } from "@12emake/design-system";
 import { getDarkMode, setDarkMode } from "./storage/darkModeOn";
@@ -61,12 +61,14 @@ const App = () => {
     return null;
   }
 
+  // TODO: Remove basename when pushing to real domain
+  // Perhaps revert back to Router
   return (
     <ThemeProvider theme={darkModeOn ? "darkBlackWhite" : "blackWhite"}>
       <IconContext.Provider
         value={{ style: { verticalAlign: "middle" }, size: "18px" }}
       >
-        <HashRouter>
+        <BrowserRouter basename="cabronis-fe">
           <StyledContainer $height={height}>
             <PwaInstallPopupIOS
               delay={0}
@@ -91,7 +93,7 @@ const App = () => {
             </Switch>
             <BottomNavigationBar />
           </StyledContainer>
-        </HashRouter>
+        </BrowserRouter>
       </IconContext.Provider>
     </ThemeProvider>
   );
