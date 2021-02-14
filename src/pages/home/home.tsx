@@ -1,4 +1,10 @@
-import { Button, Grid, useMediaQuery, useTheme } from "@12emake/design-system";
+import {
+  Button,
+  Grid,
+  Hidden,
+  useMediaQuery,
+  useTheme,
+} from "@12emake/design-system";
 import React, { useEffect } from "react";
 import styled, { css } from "styled-components";
 
@@ -32,13 +38,26 @@ const Home = () => {
         justify="center"
         alignItems="center"
       >
-        <ReactTwitchEmbedVideo
-          channel={TWITCH_CHANNEL_NAME}
-          width="100%"
-          height="100%"
-          theme={isDark ? "dark" : "light"}
-          muted={true}
-        />
+        <Hidden smDown>
+          <ReactTwitchEmbedVideo
+            allowfullscreen={true}
+            channel={TWITCH_CHANNEL_NAME}
+            width="100%"
+            height="100%"
+            theme={isDark ? "dark" : "light"}
+            muted={true}
+          />
+        </Hidden>
+        <Hidden mdUp>
+          <ReactTwitchEmbedVideo
+            allowfullscreen={false}
+            channel={TWITCH_CHANNEL_NAME}
+            width="100%"
+            height="100%"
+            theme={isDark ? "dark" : "light"}
+            muted={true}
+          />
+        </Hidden>
       </Grid>
       <Shop limit={8} />
       <div className="see-more">
