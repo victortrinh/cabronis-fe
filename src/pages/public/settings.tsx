@@ -92,12 +92,7 @@ const Settings: React.FC<SettingsProps> = ({
               </ListItemIcon>
               <ListItemText primary={t("dark-mode")} />
               <ListItemSecondaryAction>
-                <Switch
-                  color="primary"
-                  edge="end"
-                  checked={darkModeOn}
-                  inputProps={{ "aria-labelledby": "switch-list-label-wifi" }}
-                />
+                <Switch color="primary" checked={darkModeOn} />
               </ListItemSecondaryAction>
             </ListItem>
           </StyledList>

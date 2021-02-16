@@ -30,7 +30,6 @@ const StyledLink = styled(Link)`
   .MuiTypography-body1,
   .MuiTypography-displayBlock {
     font-size: 1rem;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 
     text-decoration: none;
 

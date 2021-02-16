@@ -33,6 +33,8 @@
     "install-pscbreaks": "Install pscBreaks",
     "install-pscbreaks-detailed": "Install this application on your homescreen for quick and easy access on the go.",
     "install-pscbreaks-ending": "Just tap",
-    "install-pscbreaks-ending-2": "then 'Add to Home Screen'"
+    "install-pscbreaks-ending-2": "then 'Add to Home Screen'",
+    "pokemon": "Pokemon",
+    "basketball": "Basketball"
   }
 }
