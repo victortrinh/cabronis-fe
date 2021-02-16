@@ -44,7 +44,11 @@ export const Shop: React.FunctionComponent<Props> = ({ limit }) => {
 
   const innerContainer = (
     <Container container justify="center" alignItems="center">
-      {(limit || !isMobile) && <Title className="title">{t("shop")}</Title>}
+      {(limit || !isMobile) && (
+        <Title showTitle className="title">
+          {t("shop")}
+        </Title>
+      )}
       <GridList
         className="card-list"
         cellHeight="auto"

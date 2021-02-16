@@ -23,6 +23,8 @@ import faq from "../../routes/pages/faq";
 import home from "../../routes/pages/home";
 import settings from "../../routes/pages/settings";
 import shop from "../../routes/pages/shop";
+import signIn from "../../routes/pages/authentication/signIn";
+import signUp from "../../routes/pages/authentication/signUp";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 import wishlist from "../../routes/pages/wishlist";
@@ -56,7 +58,9 @@ const BottomNavigationBar = () => {
     if (
       account.path === pathname ||
       faq.path === pathname ||
-      settings.path === pathname
+      settings.path === pathname ||
+      signIn.path === pathname ||
+      signUp.path === pathname
     ) {
       return iconFilled;
     }

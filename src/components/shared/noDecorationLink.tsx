@@ -16,6 +16,7 @@ const StyledLink = styled(Link)`
   &:link,
   &:active {
     text-decoration: none;
+    color: inherit;
   }
 
   .MuiButton-label {

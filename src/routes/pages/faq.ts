@@ -1,5 +1,5 @@
-import Faq from "../../pages/faq";
 import { Route } from "../route";
+import Faq from "../../pages/public/faq";
 
 const faq: Route = {
   key: "faq",

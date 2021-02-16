@@ -1,5 +1,5 @@
-import Account from "../../pages/account";
 import { Route } from "../route";
+import Account from "../../pages/account";
 
 const account: Route = {
   key: "account",

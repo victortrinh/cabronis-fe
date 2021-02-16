@@ -1,9 +1,5 @@
-import { get, set } from "idb-keyval";
-
 const DARK_MODE_ON_KEY = "darkModeOn";
 
-export const getDarkMode = (): Promise<boolean> =>
-  get<boolean>(DARK_MODE_ON_KEY);
+export const isDarkMode = (): boolean => localStorage.getItem(DARK_MODE_ON_KEY) === "true";
 
-export const setDarkMode = (darkModeOn: boolean): Promise<void> =>
-  set(DARK_MODE_ON_KEY, darkModeOn);
+export const setDarkMode = (darkModeOn: boolean) => localStorage.setItem(DARK_MODE_ON_KEY, darkModeOn.toString());

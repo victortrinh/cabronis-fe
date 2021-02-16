@@ -14,6 +14,18 @@
     "under-construction-text": "Désolé, nous faisons du travail sur le site!",
     "wishlist": "Favoris",
     "cart": "Chariot",
-    "see-more": "En voir plus"
+    "see-more": "En voir plus",
+    "sign-in": "Connexion",
+    "sign-out": "Déconnexion",
+    "signIn": "Connexion",
+    "email": "Courriel",
+    "password": "Mot de passe",
+    "in-construction": "En construction",
+    "signUp": "S'incrire",
+    "no-account": "Pas de compte encore?",
+    "already-account": "Vous avez déjà un compte?",
+    "firstName": "Prénom",
+    "lastName": "Nom de famille",
+    "successful-registration": "Vous vous êtes bien inscrit! Veuillez utiliser les informations d'identification choisies pour vous connecter."
   }
 }

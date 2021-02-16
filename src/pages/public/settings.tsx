@@ -16,9 +16,9 @@ import { FaChevronDown, FaChevronUp, FaGlobeAmericas } from "react-icons/fa";
 import React, { MouseEvent, useState } from "react";
 
 import { AiFillFormatPainter } from "react-icons/ai";
-import { MainContainer } from "../components/shared/mainContainer";
+import { MainContainer } from "../../components/shared/mainContainer";
 import i18next from "i18next";
-import { setLanguage } from "../storage/language";
+import { setLanguage } from "../../storage/language";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 

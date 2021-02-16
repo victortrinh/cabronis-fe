@@ -1,5 +1,5 @@
-import Item from "../../pages/item";
 import { Route } from "../route";
+import Item from "../../pages/public/item";
 
 const item: Route = {
   key: "item",

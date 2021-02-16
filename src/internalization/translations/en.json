@@ -14,6 +14,20 @@
     "under-construction-text": "Sorry, we're doing some work on the site!",
     "wishlist": "Favorites",
     "cart": "Cart",
-    "see-more": "See more"
+    "see-more": "See more",
+    "sign-in": "Sign in",
+    "sign-out": "Sign out",
+    "signIn": "Sign in",
+    "email": "Email",
+    "password": "Password",
+    "in-construction": "Under construction",
+    "errors-required": "This field is required. Maybe it's a ghost. Boo.",
+    "errors-email": "Please enter a valid email address. (example@mail.com).",
+    "signUp": "Register",
+    "no-account": "Don't have an account yet?",
+    "already-account": "Already have an account?",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "successful-registration": "You have registered successfully! Please use the credentials chosen to login."
   }
 }

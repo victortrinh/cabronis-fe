@@ -13,18 +13,26 @@ import {
 } from "@12emake/design-system";
 import { Link, useHistory, useLocation } from "react-router-dom";
 import styled, { css } from "styled-components";
+import { useDispatch, useSelector } from "react-redux";
 
 import { NoDecorationLink } from "../shared/noDecorationLink";
 import React from "react";
+import { RootState } from "../../rootState";
 import cart from "../../routes/pages/cart";
 import faq from "../../routes/pages/faq";
 import { lightBlack } from "../../common/colors";
+import { removeCurrentUser } from "../../storage/authentication";
+import { setLoggedIn } from "../../contexts/appContext/actions";
 import settings from "../../routes/pages/settings";
 import shop from "../../routes/pages/shop";
+import signIn from "../../routes/pages/authentication/signIn";
 import { useTranslation } from "react-i18next";
 import wishlist from "../../routes/pages/wishlist";
 
 export const NavigationBar: React.FC = () => {
+  const { loggedIn } = useSelector((state: RootState) => ({
+    loggedIn: state.appContext.loggedIn,
+  }));
   const [t] = useTranslation();
   const theme = useTheme();
   const isDark = theme.palette.type === "dark";
@@ -32,8 +40,14 @@ export const NavigationBar: React.FC = () => {
   const location = useLocation();
   const history = useHistory();
   const isHome = location.pathname === "/";
+  const dispatch = useDispatch();
 
   const LOGO_IMAGE_NAME = isDark ? "cabronis.svg" : "cabronis-dark.svg";
+
+  const logout = () => {
+    dispatch(setLoggedIn(false));
+    removeCurrentUser();
+  };
 
   return (
     <StyledNavigationBar position="static" color="inherit" $isMobile={isMobile}>
@@ -90,13 +104,15 @@ export const NavigationBar: React.FC = () => {
         </StyledLogoContainer>
         <Hidden smDown>
           <div className="right-side">
-            <StyledLink to={`/${wishlist.key}`}>
-              <Button
-                startIcon={<AiOutlineStar />}
-                color={isDark ? "primary" : "secondary"}
-                variant="text"
-              />
-            </StyledLink>
+            {loggedIn && (
+              <StyledLink to={`/${wishlist.key}`}>
+                <Button
+                  startIcon={<AiOutlineStar />}
+                  color={isDark ? "primary" : "secondary"}
+                  variant="text"
+                />
+              </StyledLink>
+            )}
             <StyledLink to={`/${cart.key}`}>
               <Button
                 startIcon={<AiOutlineShopping />}
@@ -114,6 +130,22 @@ export const NavigationBar: React.FC = () => {
                 {t("settings")}
               </Button>
             </NoDecorationLink>
+            {!loggedIn ? (
+              <NoDecorationLink className="sign-in" to={`/${signIn.key}`}>
+                <Button color="secondary" variant="contained">
+                  {t("sign-in")}
+                </Button>
+              </NoDecorationLink>
+            ) : (
+              <Button
+                className="sign-out"
+                onClick={logout}
+                color="secondary"
+                variant="contained"
+              >
+                {t("sign-out")}
+              </Button>
+            )}
           </div>
         </Hidden>
       </StyledToolbar>
@@ -126,7 +158,8 @@ const StyledLink = styled(NoDecorationLink)`
   align-items: center;
 
   .MuiButton-startIcon {
-    margin-left: 8px;
+    margin-left: 4px;
+    margin-right: 4px;
   }
 `;
 
@@ -139,6 +172,11 @@ const StyledNavigationBar = styled(ExternalNavigationBar)<StyledNavigationBar>`
   box-shadow: none !important;
   img {
     height: 35px;
+  }
+
+  .sign-in,
+  .sign-out {
+    margin-left: 12px;
   }
 
   .menu-icon {

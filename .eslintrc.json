@@ -18,6 +18,8 @@
   },
   "plugins": ["react", "@typescript-eslint"],
   "rules": {
-    "react/prop-types": 0
+    "react/prop-types": 0,
+    "require-jsdoc" : 0,
+    "camelcase": 0
   }
 }

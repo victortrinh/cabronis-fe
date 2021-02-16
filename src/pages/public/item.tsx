@@ -1,11 +1,11 @@
 import { Button, Grid, useTheme } from "@12emake/design-system";
-import { darkGray, lightBlack } from "../common/colors";
-import { lgSpacing, smSpacing } from "../common/spacing";
+import { darkGray, lightBlack } from "../../common/colors";
+import { lgSpacing, smSpacing } from "../../common/spacing";
 
-import { MainContainer } from "../components/shared/mainContainer";
-import NotFound from "./notFound";
+import { MainContainer } from "../../components/shared/mainContainer";
+import NotFound from "../notFound";
 import React from "react";
-import { cards } from "../hardcode/cards";
+import { cards } from "../../hardcode/cards";
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
