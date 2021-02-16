@@ -14,7 +14,7 @@
     "under-construction-text": "Désolé, nous faisons du travail sur le site!",
     "wishlist": "Favoris",
     "cart": "Chariot",
-    "see-more": "En voir plus",
+    "go-to-shop": "Aller à la boutique",
     "sign-in": "Connexion",
     "sign-out": "Déconnexion",
     "signIn": "Connexion",
@@ -26,6 +26,11 @@
     "already-account": "Vous avez déjà un compte?",
     "firstName": "Prénom",
     "lastName": "Nom de famille",
-    "successful-registration": "Vous vous êtes bien inscrit! Veuillez utiliser les informations d'identification choisies pour vous connecter."
+    "successful-registration": "Vous vous êtes bien inscrit! Veuillez utiliser les informations d'identification choisies pour vous connecter.",
+    "featured": "En vedette",
+    "install-pscbreaks": "Installer pscBreaks",
+    "install-pscbreaks-detailed": "Installez cette application sur votre écran d'accueil pour un accès rapide et facile lors de vos déplacements.",
+    "install-pscbreaks-ending": "Appuyez simplement sur",
+    "install-pscbreaks-ending-2": "puis 'Ajouter sur l'écran d'accueil'"
   }
 }

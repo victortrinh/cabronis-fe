@@ -46,8 +46,6 @@ const App = () => {
     setDarkMode(!darkModeOn);
   };
 
-  // TODO: Remove basename when pushing to real domain
-  // Perhaps revert back to Router
   return (
     <Provider store={store}>
       <ThemeProvider theme={darkModeOn ? "darkBlackWhite" : "blackWhite"}>

@@ -21,9 +21,10 @@ import { useTranslation } from "react-i18next";
 
 type Props = {
   limit?: number;
+  title?: string;
 };
 
-export const Shop: React.FunctionComponent<Props> = ({ limit }) => {
+export const Shop: React.FunctionComponent<Props> = ({ limit, title }) => {
   const [t] = useTranslation();
   const theme = useTheme();
   const isDark = theme.palette.type === "dark";
@@ -46,7 +47,7 @@ export const Shop: React.FunctionComponent<Props> = ({ limit }) => {
     <Container container justify="center" alignItems="center">
       {(limit || !isMobile) && (
         <Title showTitle className="title">
-          {t("shop")}
+          {title || t("shop")}
         </Title>
       )}
       <GridList

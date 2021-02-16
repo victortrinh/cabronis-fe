@@ -59,11 +59,11 @@ const Home = () => {
           />
         </Hidden>
       </Grid>
-      <Shop limit={8} />
+      <Shop limit={8} title={t("featured")} />
       <div className="see-more">
         <NoDecorationLink to={shop.key}>
           <Button color={isDark ? "primary" : "secondary"}>
-            {t("see-more")}
+            {t("go-to-shop")}
           </Button>
         </NoDecorationLink>
       </div>

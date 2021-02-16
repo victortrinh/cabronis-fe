@@ -14,7 +14,7 @@
     "under-construction-text": "Sorry, we're doing some work on the site!",
     "wishlist": "Favorites",
     "cart": "Cart",
-    "see-more": "See more",
+    "go-to-shop": "Go to shop",
     "sign-in": "Sign in",
     "sign-out": "Sign out",
     "signIn": "Sign in",
@@ -28,6 +28,11 @@
     "already-account": "Already have an account?",
     "firstName": "First name",
     "lastName": "Last name",
-    "successful-registration": "You have registered successfully! Please use the credentials chosen to login."
+    "successful-registration": "You have registered successfully! Please use the credentials chosen to login.",
+    "featured": "Featured",
+    "install-pscbreaks": "Install pscBreaks",
+    "install-pscbreaks-detailed": "Install this application on your homescreen for quick and easy access on the go.",
+    "install-pscbreaks-ending": "Just tap",
+    "install-pscbreaks-ending-2": "then 'Add to Home Screen'"
   }
 }
