@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/App.css"],"names":[],"mappings":"AAAA,UAEE,yCACF,CAMA,2BACE,+BACF","file":"main.24d5eb64.chunk.css","sourcesContent":["body,\r\nhtml {\r\n  font-family: \"Mulish\", sans-serif !important;\r\n}\r\n\r\n.MuiTypography-root {\r\n  font-family: \"Mulish\", sans-serif;\r\n}\r\n\r\nbutton {\r\n  font-family: \"Mulish\", sans-serif;\r\n}\r\n"]}
