@@ -20,18 +20,12 @@ import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 
 type Props = {
-  language: string;
   height: number;
   darkModeOn: boolean;
   toggleDarkModeOn: () => void;
 };
 
-const Routing: React.FC<Props> = ({
-  darkModeOn,
-  height,
-  language,
-  toggleDarkModeOn,
-}) => {
+const Routing: React.FC<Props> = ({ darkModeOn, height, toggleDarkModeOn }) => {
   const [t] = useTranslation();
   const LOGO_IMAGE_NAME = "apple-touch-icon.png";
   const dispatch = useDispatch();

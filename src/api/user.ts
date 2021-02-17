@@ -33,22 +33,6 @@ export class AuthenticationAPI {
     return this.perform("post", `${baseAuthURL}/login`, data);
   }
 
-  async perform(method: any, resource: any, data: LoginData | null = null) {
-    return client({
-      method,
-      url: resource,
-      data
-    }).then(
-      (resp: any) => ({ isError: false, response: resp.data }),
-      (error: any) => ({
-          isError: true,
-          response: error.response?.data?.message ?? "Error with back-end"
-        })
-    );
-  }
-}
-
-export class UserApi {
   async changePassword(data: UserChangePassword) {
     return this.perform("post", `${baseUserURL}/changePassword`, data);
   }
@@ -57,7 +41,7 @@ export class UserApi {
     return this.perform("post", `${baseUserURL}/register`, data);
   }
 
-  async perform(method: any, resource: any, data: UserChangePassword | RegisterData | null = null) {
+  async perform(method: any, resource: any, data: LoginData | UserChangePassword | RegisterData | null = null) {
     return client({
       method,
       url: resource,

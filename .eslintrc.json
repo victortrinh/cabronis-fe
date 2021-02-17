@@ -20,6 +20,8 @@
   "rules": {
     "react/prop-types": 0,
     "require-jsdoc" : 0,
-    "camelcase": 0
+    "camelcase": 0,
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": "error"
   }
 }

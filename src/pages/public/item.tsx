@@ -1,9 +1,10 @@
 import { Button, Grid, useTheme } from "@12emake/design-system";
-import { darkGray, lightBlack } from "../../common/colors";
+import { darkGray, green400, lightBlack, red250 } from "../../common/colors";
 import { lgSpacing, smSpacing } from "../../common/spacing";
 
 import { MainContainer } from "../../components/shared/mainContainer";
 import NotFound from "../notFound";
+import { Price } from "../../components/shared/price";
 import React from "react";
 import { cards } from "../../hardcode/cards";
 import styled from "styled-components";
@@ -25,12 +26,24 @@ const Item: React.FC = () => {
     <StyledContainer $isDark={isDark}>
       <Grid container>
         <Grid className="image" item xs={12} sm={12} md={6}>
-          <img src={item.image} alt={item.description} />
+          <img src={item.image_str} alt={item.name} />
         </Grid>
         <Grid className="content" item xs={12} sm={12} md={6}>
+          <div className="name">{item.name}</div>
+          <div className="price">
+            <Price value={item.price} />
+          </div>
           <div className="description">{item.description}</div>
-          <div className="price">{item.price}</div>
-          <Button color="secondary" fullWidth>
+          <div className="stock-wrapper">
+            {item.stock <= 0 ? (
+              <div className="no-stock">{t("no-stock")}</div>
+            ) : (
+              <div className="stock">
+                {t("quantity-in-stock")} : {item.stock}
+              </div>
+            )}
+          </div>
+          <Button color="secondary" fullWidth disabled={item.stock <= 0}>
             {t("in-construction")}
           </Button>
         </Grid>
@@ -66,7 +79,7 @@ const StyledContainer = styled(MainContainer)<StyledContainerProps>`
   .content {
     margin-top: ${smSpacing};
 
-    .description {
+    .name {
       font-family: "Odibee Sans", cursive;
       font-weight: 400;
       font-size: 32px;
@@ -81,6 +94,34 @@ const StyledContainer = styled(MainContainer)<StyledContainerProps>`
       line-height: 28px;
       color: ${(props) => (props.$isDark ? lightBlack : darkGray)};
       margin-bottom: ${lgSpacing};
+    }
+
+    .description {
+      margin-bottom: ${smSpacing};
+    }
+
+    .stock-wrapper {
+      margin-bottom: ${smSpacing};
+
+      .no-stock {
+        padding: 5px 10px;
+        background-color: ${red250};
+        display: inline-block;
+        border-radius: 5px;
+        text-transform: uppercase;
+        color: white;
+        font-weight: 600;
+      }
+
+      .stock {
+        padding: 5px 10px;
+        background-color: ${green400};
+        display: inline-block;
+        border-radius: 5px;
+        text-transform: uppercase;
+        color: white;
+        font-weight: 600;
+      }
     }
   }
 `;

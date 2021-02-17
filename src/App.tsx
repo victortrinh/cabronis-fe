@@ -14,7 +14,6 @@ import { store } from "./store";
 const App = () => {
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
   const [darkModeOn, setDarkModeOn] = useState(prefersDarkMode);
-  const [language, setLanguage] = useState("en");
 
   const [height, setHeight] = useState(window.innerHeight);
 
@@ -37,7 +36,6 @@ const App = () => {
 
     if (lang && i18next.language !== lang) {
       i18next.changeLanguage(lang);
-      setLanguage(lang);
     }
   }, []);
 
@@ -55,7 +53,6 @@ const App = () => {
           <Routing
             darkModeOn={darkModeOn}
             height={height}
-            language={language}
             toggleDarkModeOn={toggleDarkModeOn}
           />
         </IconContext.Provider>

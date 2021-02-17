@@ -33,6 +33,8 @@
     "install-pscbreaks-ending": "Appuyez simplement sur",
     "install-pscbreaks-ending-2": "puis 'Ajouter sur l'écran d'accueil'",
     "pokemon": "Pokemon",
-    "basketball": "Basketball"
+    "basketball": "Basketball",
+    "quantity-in-stock": "Quantité en stock",
+    "no-stock": "Sold out"
   }
 }

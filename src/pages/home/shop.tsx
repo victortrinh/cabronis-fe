@@ -12,6 +12,7 @@ import { lgSpacing, xsSpacing } from "../../common/spacing";
 
 import { MainContainer } from "../../components/shared/mainContainer";
 import { NoDecorationLink } from "../../components/shared/noDecorationLink";
+import { Price } from "../../components/shared/price";
 import React from "react";
 import { Title } from "../../components/shared/title";
 import { cards } from "../../hardcode/cards";
@@ -62,12 +63,14 @@ export const Shop: React.FunctionComponent<Props> = ({ limit, title }) => {
               <StyledCard $isDark={isDark}>
                 <CardActionArea className="card-area">
                   <div className="image-container">
-                    <img src={card.image} alt={card.description} />
+                    <img src={card.image_str} alt={card.name} />
                   </div>
                   <CardContent className="card-content">
                     <>
-                      <div className="description">{card.description}</div>
-                      <div className="price">{card.price}</div>
+                      <div className="description">{card.name}</div>
+                      <div className="price">
+                        <Price value={card.price} />
+                      </div>
                     </>
                   </CardContent>
                 </CardActionArea>

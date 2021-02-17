@@ -34,8 +34,7 @@ const Account = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const handleOnClick = useCallback(
-    (path: string) => (_: React.MouseEvent<HTMLLIElement, MouseEvent>) =>
-      history.push(`/${path}`),
+    (path: string) => () => history.push(`/${path}`),
     [history]
   );
 

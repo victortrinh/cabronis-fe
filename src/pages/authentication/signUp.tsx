@@ -1,6 +1,6 @@
+import { AuthenticationAPI, RegisterData } from "../../api/user";
 import { Button, Grid, Input } from "@12emake/design-system";
 import React, { useState } from "react";
-import { RegisterData, UserApi } from "../../api/user";
 
 import { Construction } from "../../components/shared/construction";
 import { ErrorMessages } from "../../components/shared/errorMessages";
@@ -21,12 +21,12 @@ export const SignUpConstruction = () => {
   const [t] = useTranslation();
   const { register, handleSubmit, errors } = useForm();
   const [errorMessages, setErrorMessages] = useState();
-  const userAPI: UserApi = new UserApi();
+  const authenticationApi: AuthenticationAPI = new AuthenticationAPI();
   const [registerSuccessful, setRegisterSuccessful] = useState(false);
 
   const onSubmit = (data: RegisterData) => {
     const register = async () => {
-      await userAPI.registerUser(data).then((data: any) => {
+      await authenticationApi.registerUser(data).then((data: any) => {
         if (data.isError) {
           setErrorMessages(data.response);
         } else {

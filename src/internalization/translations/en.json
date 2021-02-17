@@ -35,6 +35,8 @@
     "install-pscbreaks-ending": "Just tap",
     "install-pscbreaks-ending-2": "then 'Add to Home Screen'",
     "pokemon": "Pokemon",
-    "basketball": "Basketball"
+    "basketball": "Basketball",
+    "quantity-in-stock": "Quantity in stock",
+    "no-stock": "Sold out"
   }
 }

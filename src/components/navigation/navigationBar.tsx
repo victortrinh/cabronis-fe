@@ -42,7 +42,7 @@ export const NavigationBar: React.FC = () => {
   const isHome = location.pathname === "/";
   const dispatch = useDispatch();
 
-  const LOGO_IMAGE_NAME = isDark ? "cabronis.svg" : "cabronis-dark.svg";
+  const LOGO_IMAGE_NAME = isDark ? "pscBreaks.svg" : "pscBreaks-dark.svg";
 
   const logout = () => {
     dispatch(setLoggedIn(false));
