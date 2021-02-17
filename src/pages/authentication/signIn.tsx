@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { Redirect, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import { Construction } from "../../components/shared/construction";
 import { ErrorMessages } from "../../components/shared/errorMessages";
 import { Form } from "../../components/shared/form";
 import { MainContainer } from "../../components/shared/mainContainer";
@@ -18,10 +17,7 @@ import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 
-const SignIn = () => <Construction />;
-
-// TODO: Use this once in prod
-export const SignInConstruction: React.FC = () => {
+const SignIn: React.FC = () => {
   const { loggedIn } = useSelector((state: RootState) => ({
     loggedIn: state.appContext.loggedIn,
   }));

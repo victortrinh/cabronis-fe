@@ -27,7 +27,7 @@ type Props = {
 
 const Routing: React.FC<Props> = ({ darkModeOn, height, toggleDarkModeOn }) => {
   const [t] = useTranslation();
-  const LOGO_IMAGE_NAME = "apple-touch-icon.png";
+  const LOGO_IMAGE_NAME = "assets/apple-icon-180.png";
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -36,10 +36,8 @@ const Routing: React.FC<Props> = ({ darkModeOn, height, toggleDarkModeOn }) => {
     }
   }, []);
 
-  // TODO: Remove basename when pushing to real domain
-  // Perhaps revert back to Router
   return (
-    <BrowserRouter basename="cabronis-fe">
+    <BrowserRouter>
       <StyledContainer $height={height}>
         <PwaInstallPopupIOS delay={0}>
           <PwaDiv>

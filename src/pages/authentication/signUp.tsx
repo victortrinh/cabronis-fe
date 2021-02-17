@@ -2,7 +2,6 @@ import { AuthenticationAPI, RegisterData } from "../../api/user";
 import { Button, Grid, Input } from "@12emake/design-system";
 import React, { useState } from "react";
 
-import { Construction } from "../../components/shared/construction";
 import { ErrorMessages } from "../../components/shared/errorMessages";
 import { Form } from "../../components/shared/form";
 import { MainContainer } from "../../components/shared/mainContainer";
@@ -14,10 +13,7 @@ import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 
-const SignUp = () => <Construction />;
-
-// TODO: Use this once in prod
-export const SignUpConstruction = () => {
+const SignUp = () => {
   const [t] = useTranslation();
   const { register, handleSubmit, errors } = useForm();
   const [errorMessages, setErrorMessages] = useState();
