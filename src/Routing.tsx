@@ -1,6 +1,6 @@
 import "./App.css";
 
-import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
+import { Router, Redirect, Route, Switch } from "react-router-dom";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -18,6 +18,9 @@ import settings from "./routes/pages/settings";
 import signIn from "./routes/pages/authentication/signIn";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
+import { createBrowserHistory } from "history";
+
+const history = createBrowserHistory();
 
 type Props = {
   height: number;
@@ -37,7 +40,7 @@ const Routing: React.FC<Props> = ({ darkModeOn, height, toggleDarkModeOn }) => {
   }, []);
 
   return (
-    <BrowserRouter>
+    <Router history={history}>
       <StyledContainer $height={height}>
         <PwaInstallPopupIOS delay={0}>
           <PwaDiv>
@@ -86,7 +89,7 @@ const Routing: React.FC<Props> = ({ darkModeOn, height, toggleDarkModeOn }) => {
         </Switch>
         <BottomNavigationBar />
       </StyledContainer>
-    </BrowserRouter>
+    </Router>
   );
 };
 

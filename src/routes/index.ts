@@ -11,6 +11,6 @@ import wishlist from "./pages/wishlist";
 import signIn from "./pages/authentication/signIn";
 import signUp from "./pages/authentication/signUp";
 
-const routes: Route[] = [account, cart, faq, home, item, shop, signIn, signUp, wishlist, notFound];
+const routes: Route[] = [account, cart, faq, item, shop, signIn, signUp, wishlist, home, notFound];
 
 export default routes;
