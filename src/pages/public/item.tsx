@@ -1,5 +1,5 @@
 import { Button, Grid, useTheme } from "@12emake/design-system";
-import { darkGray, green400, lightBlack, red250 } from "../../common/colors";
+import { darkGray, lightBlack, red250 } from "../../common/colors";
 import { lgSpacing, smSpacing } from "../../common/spacing";
 
 import { MainContainer } from "../../components/shared/mainContainer";
@@ -38,9 +38,14 @@ const Item: React.FC = () => {
             {item.stock <= 0 ? (
               <div className="no-stock">{t("no-stock")}</div>
             ) : (
-              <div className="stock">
-                {t("quantity-in-stock")} : {item.stock}
-              </div>
+              <>
+                <div className="stock">
+                  {t("quantity-in-stock")} : {item.stock}
+                </div>
+                {item.stock > 0 && item.stock <= 5 && (
+                  <span className="low-stock">{t("low-stock")}</span>
+                )}
+              </>
             )}
           </div>
           <Button color="secondary" fullWidth disabled={item.stock <= 0}>
@@ -103,7 +108,8 @@ const StyledContainer = styled(MainContainer)<StyledContainerProps>`
     .stock-wrapper {
       margin-bottom: ${smSpacing};
 
-      .no-stock {
+      .no-stock,
+      .low-stock {
         padding: 5px 10px;
         background-color: ${red250};
         display: inline-block;
@@ -113,13 +119,14 @@ const StyledContainer = styled(MainContainer)<StyledContainerProps>`
         font-weight: 600;
       }
 
+      .low-stock {
+        margin-left: 8px;
+      }
+
       .stock {
-        padding: 5px 10px;
-        background-color: ${green400};
         display: inline-block;
         border-radius: 5px;
         text-transform: uppercase;
-        color: white;
         font-weight: 600;
       }
     }

@@ -44,7 +44,8 @@ const SignUp = () => {
 
   return (
     <Container>
-      <Title className="title">{t("signUp")}</Title>
+      <Title className="title">{t("signUp-title")}</Title>
+      <div className="title-description">{t("signUp-description")}</div>
       <Grid container justify="center">
         <Grid item xs={12} sm={12} md={6}>
           <Form onSubmit={handleSubmit(onSubmit)}>
@@ -131,6 +132,10 @@ const SignUp = () => {
 const Container = styled(MainContainer)`
   margin-top: 24px;
   text-align: center;
+
+  .title-description {
+    margin-bottom: 24px;
+  }
 
   .already {
     margin-top: 24px;

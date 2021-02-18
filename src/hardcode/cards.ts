@@ -39,7 +39,7 @@ export const cards: Pack[] = [
       name: "Kelly's Cosmic Eclipse",
       price: 10.25,
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec urna nec lacus commodo commodo. Nunc eu condimentum magna. Vestibulum nibh nulla, luctus at eleifend finibus, vestibulum maximus elit.",
-      stock: 12,
+      stock: 1,
       theme: ThemeEnum.Pokemon
     },
     {

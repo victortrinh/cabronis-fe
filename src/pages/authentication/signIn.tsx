@@ -48,7 +48,8 @@ const SignIn: React.FC = () => {
 
   return (
     <Container>
-      <Title className="title">{t("signIn")}</Title>
+      <Title className="title">{t("signIn-title")}</Title>
+      <div className="title-description">{t("signIn-description")}</div>
       <Grid container justify="center">
         <Grid item xs={12} sm={12} md={6}>
           {location?.state?.id === "registered" && (
@@ -110,6 +111,10 @@ const SignIn: React.FC = () => {
 const Container = styled(MainContainer)`
   margin-top: 24px;
   text-align: center;
+
+  .title-description {
+    margin-bottom: 24px;
+  }
 
   .already {
     margin-top: 24px;

@@ -1,13 +1,12 @@
 import {
   Card,
-  CardActionArea,
   CardContent,
   Grid,
   GridList,
   useMediaQuery,
   useTheme,
 } from "@12emake/design-system";
-import { darkGray, lightBlack } from "../../common/colors";
+import { darkGray, lightBlack, minimalBoxShadow } from "../../common/colors";
 import { lgSpacing, xsSpacing } from "../../common/spacing";
 
 import { MainContainer } from "../../components/shared/mainContainer";
@@ -61,19 +60,17 @@ export const Shop: React.FunctionComponent<Props> = ({ limit, title }) => {
           <Grid className="card" key={card.id}>
             <NoDecorationLink to={`/${item.key}/${card.id}`}>
               <StyledCard $isDark={isDark}>
-                <CardActionArea className="card-area">
-                  <div className="image-container">
-                    <img src={card.image_str} alt={card.name} />
-                  </div>
-                  <CardContent className="card-content">
-                    <>
-                      <div className="description">{card.name}</div>
-                      <div className="price">
-                        <Price value={card.price} />
-                      </div>
-                    </>
-                  </CardContent>
-                </CardActionArea>
+                <div className="image-container">
+                  <img src={card.image_str} alt={card.name} />
+                </div>
+                <CardContent className="card-content">
+                  <>
+                    <div className="description">{card.name}</div>
+                    <div className="price">
+                      <Price value={card.price} />
+                    </div>
+                  </>
+                </CardContent>
               </StyledCard>
             </NoDecorationLink>
           </Grid>
@@ -108,6 +105,10 @@ const StyledCard = styled(Card)<StyledCardProps>`
   box-shadow: none;
   height: 100%;
 
+  :hover {
+    box-shadow: ${minimalBoxShadow};
+  }
+
   .card-area {
     height: 100%;
     display: flex;
@@ -128,6 +129,7 @@ const StyledCard = styled(Card)<StyledCardProps>`
 
   .card-content {
     flex: 1;
+    text-align: center;
 
     .description {
       font-family: "Odibee Sans", cursive;
