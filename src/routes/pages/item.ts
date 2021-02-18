@@ -4,8 +4,7 @@ import Item from "../../pages/public/item";
 const item: Route = {
   key: "item",
   component: Item,
-  path: "/item/:id",
-  exact: true,
+  path: "/item/:id"
 };
 
 export default item;

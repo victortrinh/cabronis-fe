@@ -4,8 +4,7 @@ import Cart from "../../pages/public/cart";
 const cart: Route = {
   key: "cart",
   component: Cart,
-  path: "/cart",
-  exact: true,
+  path: "/cart"
 };
 
 export default cart;

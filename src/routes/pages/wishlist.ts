@@ -5,8 +5,7 @@ const wishlist: Route = {
   key: "wishlist",
   component: Wishlist,
   path: "/wishlist",
-  needAuthentication: true,
-  exact: true,
+  needAuthentication: true
 };
 
 export default wishlist;

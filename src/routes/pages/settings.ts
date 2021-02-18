@@ -2,8 +2,7 @@ import { Route } from "../route";
 
 const settings: Route = {
   key: "settings",
-  path: "/settings",
-  exact: true,
+  path: "/settings"
 };
 
 export default settings;

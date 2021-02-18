@@ -4,8 +4,7 @@ import Faq from "../../pages/public/faq";
 const faq: Route = {
   key: "faq",
   component: Faq,
-  path: "/faq",
-  exact: true,
+  path: "/faq"
 };
 
 export default faq;

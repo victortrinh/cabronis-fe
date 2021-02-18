@@ -4,8 +4,7 @@ import Account from "../../pages/account";
 const account: Route = {
   key: "account",
   component: Account,
-  path: "/account",
-  exact: true,
+  path: "/account"
 };
 
 export default account;
