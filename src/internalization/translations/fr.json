@@ -13,7 +13,7 @@
     "under-construction-title": "Page en construction",
     "under-construction-text": "Désolé, nous faisons du travail sur le site!",
     "wishlist": "Favoris",
-    "cart": "Chariot",
+    "cart": "Panier",
     "go-to-shop": "Aller à la boutique",
     "sign-in": "Connexion",
     "sign-out": "Déconnexion",
@@ -37,8 +37,22 @@
     "install-pscbreaks-ending": "Appuyez simplement sur",
     "install-pscbreaks-ending-2": "puis 'Ajouter sur l'écran d'accueil'",
     "pokemon": "Pokemon",
-    "basketball": "Basketball",
+    "basketball": "Sports",
     "quantity-in-stock": "Quantité en stock",
-    "no-stock": "Sold out"
+    "no-stock": "Sold out",
+    "added-to-cart-title": "Ajouté avec succès au panier!",
+    "added-to-cart-content": "Vous pouvez aller au panier pour voir les étapes suivantes, ou vous pouvez continuer vos achats.",
+    "continue-shopping": "Continuer vos achats",
+    "go-to-cart": "Aller au panier",
+    "empty-cart-title": "Hey! Ton panier est vide, tu ne veux pas ton 'Zard?!?",
+    "my-bag": "Mon sac",
+    "price": "Prix",
+    "quantity": "Quantité",
+    "total": "Total",
+    "add-to-cart": "Ajouter au panier",
+    "cart-explanation": "Veuillez contacter directement le vendeur avant d'effectuer le paiement pour vous assurer que tout ce qui apparaît ici est correct.",
+    "cart-removal-content": "Voulez-vous vraiment supprimer cet article de votre sac?",
+    "confirm": "Confirmer",
+    "cancel": "Annuler"
   }
 }

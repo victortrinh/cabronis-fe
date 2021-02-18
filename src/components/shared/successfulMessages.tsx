@@ -1,22 +1,32 @@
 import { green100, green400 } from "../../common/colors";
+import styled, { css } from "styled-components";
 
 import { FaThumbsUp } from "react-icons/fa";
 import { IconContext } from "react-icons/lib";
 import React from "react";
-import styled from "styled-components";
+import { useTheme } from "@12emake/design-system";
 
-export const SuccessfulMessages: React.FC = ({ children }) => (
-  <StyledSuccessfulMessages>
-    <div className="icon">
-      <IconContext.Provider value={{ color: green400, size: "20px" }}>
-        <FaThumbsUp />
-      </IconContext.Provider>
-    </div>
-    {children}
-  </StyledSuccessfulMessages>
-);
+export const SuccessfulMessages: React.FC = ({ children }) => {
+  const theme = useTheme();
+  const isDark = theme.palette.type === "dark";
 
-const StyledSuccessfulMessages = styled.div`
+  return (
+    <StyledSuccessfulMessages $isDark={isDark}>
+      <div className="icon">
+        <IconContext.Provider value={{ color: green400, size: "20px" }}>
+          <FaThumbsUp />
+        </IconContext.Provider>
+      </div>
+      {children}
+    </StyledSuccessfulMessages>
+  );
+};
+
+type Props = {
+  $isDark: boolean;
+};
+
+const StyledSuccessfulMessages = styled.div<Props>`
   display: flex;
   text-align: left;
   margin-top: 24px;
@@ -30,4 +40,10 @@ const StyledSuccessfulMessages = styled.div`
     display: flex;
     align-items: flex-start;
   }
+
+  ${(props) =>
+    props.$isDark &&
+    css`
+      color: black;
+    `}
 `;

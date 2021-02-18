@@ -12,6 +12,7 @@ import {
   useTheme,
 } from "@12emake/design-system";
 import { Link, useHistory, useLocation } from "react-router-dom";
+import { lightBlack, red250 } from "../../common/colors";
 import styled, { css } from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -20,7 +21,6 @@ import React from "react";
 import { RootState } from "../../rootState";
 import cart from "../../routes/pages/cart";
 import faq from "../../routes/pages/faq";
-import { lightBlack } from "../../common/colors";
 import { removeCurrentUser } from "../../storage/authentication";
 import { setLoggedIn } from "../../contexts/appContext/actions";
 import settings from "../../routes/pages/settings";
@@ -30,8 +30,9 @@ import { useTranslation } from "react-i18next";
 import wishlist from "../../routes/pages/wishlist";
 
 export const NavigationBar: React.FC = () => {
-  const { loggedIn } = useSelector((state: RootState) => ({
+  const { sellableItemsInCart, loggedIn } = useSelector((state: RootState) => ({
     loggedIn: state.appContext.loggedIn,
+    sellableItemsInCart: state.cartContext.cart,
   }));
   const [t] = useTranslation();
   const theme = useTheme();
@@ -78,7 +79,7 @@ export const NavigationBar: React.FC = () => {
             </div>
           </Hidden>
         )}
-        <StyledLogoContainer>
+        <StyledLogoContainer $isHome={isHome} $isMobile={isMobile}>
           <Hidden smDown>
             <Link to="/">
               <img
@@ -113,12 +114,15 @@ export const NavigationBar: React.FC = () => {
                 />
               </StyledLink>
             )}
-            <StyledLink to={`/${cart.key}`}>
+            <StyledLink className="cart" to={`/${cart.key}`}>
               <Button
                 startIcon={<AiOutlineShopping />}
                 color={isDark ? "primary" : "secondary"}
                 variant="text"
               />
+              {sellableItemsInCart.length > 0 && (
+                <div className="cart-number">{sellableItemsInCart.length}</div>
+              )}
             </StyledLink>
             <NoDecorationLink to={`/${faq.key}`}>
               <Button color={isDark ? "primary" : "secondary"} variant="text">
@@ -199,6 +203,22 @@ const StyledNavigationBar = styled(ExternalNavigationBar)<StyledNavigationBar>`
     left: 0;
   }
 
+  .cart {
+    position: relative;
+
+    .cart-number {
+      background-color: ${red250};
+      color: white;
+      position: absolute;
+      right: 18px;
+      bottom: 5px;
+      padding: 1px 4px;
+      text-align: center;
+      font-size: 8px;
+      border-radius: 1000px;
+    }
+  }
+
   ${(props) =>
     props.$isMobile &&
     css`
@@ -207,7 +227,12 @@ const StyledNavigationBar = styled(ExternalNavigationBar)<StyledNavigationBar>`
     `}
 `;
 
-const StyledLogoContainer = styled.div`
+type StyledLogoContainerProps = {
+  $isHome: boolean;
+  $isMobile: boolean;
+};
+
+const StyledLogoContainer = styled.div<StyledLogoContainerProps>`
   display: flex;
   flex: 1;
   justify-content: center;
@@ -220,6 +245,13 @@ const StyledLogoContainer = styled.div`
     font-size: 16px;
     font-weight: 700;
   }
+
+  ${(props) =>
+    props.$isMobile &&
+    props.$isHome &&
+    css`
+      justify-content: flex-start;
+    `}
 `;
 
 const StyledToolbar = styled(Toolbar)`

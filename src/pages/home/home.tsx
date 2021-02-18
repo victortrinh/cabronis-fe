@@ -18,6 +18,9 @@ import { defaultBoxShadow } from "../../common/colors";
 import shop from "../../routes/pages/shop";
 import { smSpacing } from "../../common/spacing";
 import { useTranslation } from "react-i18next";
+import { CgPokemon } from "react-icons/cg";
+import { BiBasketball } from "react-icons/bi";
+import { IconContext } from "react-icons/lib";
 
 const Home = () => {
   const [t] = useTranslation();
@@ -37,9 +40,16 @@ const Home = () => {
   }, []);
 
   return (
-    <StyledMainContainer $horizontalCentered $isMobile={isMobile}>
+    <StyledMainContainer
+      disableGutters={isMobile}
+      $horizontalCentered
+      $isMobile={isMobile}
+    >
       <div className="twitch-switch">
-        {t("pokemon")}
+        {!isMobile && t("pokemon")}{" "}
+        <IconContext.Provider value={{ size: "25px" }}>
+          <CgPokemon />
+        </IconContext.Provider>
         <StyledSwitch
           $backgroundColor={theme.palette.secondary.main}
           checked={!isPokemon}
@@ -48,7 +58,10 @@ const Home = () => {
             setIsPokemon(!isPokemon);
           }}
         />
-        {t("basketball")}
+        <IconContext.Provider value={{ size: "22px" }}>
+          <BiBasketball />
+        </IconContext.Provider>{" "}
+        {!isMobile && t("basketball")}
       </div>
       <Grid
         className="twitch-container"
@@ -153,13 +166,21 @@ const StyledMainContainer = styled(MainContainer)<StyledMainContainerProps>`
     css`
       height: 100vh;
       overflow: auto;
+      padding-top: 0;
 
       .twitch-switch {
         margin-top: 0;
+        position: absolute;
+        right: 12px;
+        top: calc(env(safe-area-inset-top) + 10px);
+        z-index: 99999;
       }
 
       .twitch-container {
-        height: 75vh;
+        margin-top: 0;
+        height: calc(
+          100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 150px
+        );
       }
     `}
 `;

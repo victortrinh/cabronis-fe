@@ -39,8 +39,22 @@
     "install-pscbreaks-ending": "Just tap",
     "install-pscbreaks-ending-2": "then 'Add to Home Screen'",
     "pokemon": "Pokemon",
-    "basketball": "Basketball",
+    "basketball": "Sports",
     "quantity-in-stock": "Quantity in stock",
-    "no-stock": "Sold out"
+    "no-stock": "Sold out",
+    "added-to-cart-title": "Succesfully added to cart!",
+    "added-to-cart-content": "You can go to cart to see the next steps, or you can continue shopping.",
+    "continue-shopping": "Continue shopping",
+    "go-to-cart": "Go to cart",
+    "empty-cart-title": "Hey! Your cart is empty, don't you want that 'Zard?!?",
+    "my-bag": "My bag",
+    "price": "Price",
+    "quantity": "Quantity",
+    "total": "Total",
+    "add-to-cart": "Add to cart",
+    "cart-explanation": "Please contact the seller directly before making the payment to make sure everything that appears here is right.",
+    "cart-removal-content": "Are you sure you want to remove this item from your bag?",
+    "confirm": "Confirm",
+    "cancel": "Cancel"
   }
 }

@@ -11,5 +11,7 @@ export const Price: React.FunctionComponent<Props> = ({ value }) => (
     displayType={"text"}
     thousandSeparator={true}
     prefix={"$"}
+    decimalScale={2}
+    fixedDecimalScale
   />
 );

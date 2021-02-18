@@ -17,19 +17,26 @@ import { FaRegUser, FaUser } from "react-icons/fa";
 import React, { ChangeEvent } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 
+import { RootState } from "../../rootState";
 import account from "../../routes/pages/account";
 import cart from "../../routes/pages/cart";
 import faq from "../../routes/pages/faq";
 import home from "../../routes/pages/home";
+import item from "../../routes/pages/item";
+import { red250 } from "../../common/colors";
 import settings from "../../routes/pages/settings";
 import shop from "../../routes/pages/shop";
 import signIn from "../../routes/pages/authentication/signIn";
 import signUp from "../../routes/pages/authentication/signUp";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import wishlist from "../../routes/pages/wishlist";
 
 const BottomNavigationBar = () => {
+  const { sellableItemsInCart } = useSelector((state: RootState) => ({
+    sellableItemsInCart: state.cartContext.cart,
+  }));
   const [t] = useTranslation();
   const history = useHistory();
   const location = useLocation();
@@ -44,6 +51,18 @@ const BottomNavigationBar = () => {
     iconOutlined: React.ReactNode
   ) => {
     if (path === location.pathname) {
+      return iconFilled;
+    }
+
+    return iconOutlined;
+  };
+
+  const getShopIcon = (
+    iconFilled: React.ReactNode,
+    iconOutlined: React.ReactNode
+  ) => {
+    const pathname = location.pathname;
+    if (shop.path === pathname || pathname.includes(item.key)) {
       return iconFilled;
     }
 
@@ -88,12 +107,23 @@ const BottomNavigationBar = () => {
         <StyledBottomNavigationAction
           value={shop.path}
           label={t("shop")}
-          icon={getIcon(shop.path, <AiFillShop />, <AiOutlineShop />)}
+          icon={getShopIcon(<AiFillShop />, <AiOutlineShop />)}
         />
         <StyledBottomNavigationAction
           value={cart.path}
           label={t("cart")}
-          icon={getIcon(cart.path, <AiFillShopping />, <AiOutlineShopping />)}
+          icon={getIcon(
+            cart.path,
+            <div className="cart">
+              <AiFillShopping /> <div className="cart-number">1</div>
+            </div>,
+            <div className="cart">
+              <AiOutlineShopping />{" "}
+              {sellableItemsInCart.length > 0 && (
+                <div className="cart-number">{sellableItemsInCart.length}</div>
+              )}
+            </div>
+          )}
         />
         <StyledBottomNavigationAction
           value={account.path}
@@ -116,6 +146,21 @@ const StyledBottomNavigation = styled(BottomNavigation)`
 
   .MuiBottomNavigationAction-iconOnly {
     margin-bottom: 10px;
+  }
+
+  .cart {
+    position: relative;
+
+    .cart-number {
+      background-color: ${red250};
+      color: white;
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      padding: 1px 4px;
+      font-size: 8px;
+      border-radius: 1000px;
+    }
   }
 `;
 
