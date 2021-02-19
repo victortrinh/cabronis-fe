@@ -62,6 +62,11 @@
     "to-clipboard": "to clipboard.",
     "search": "Search",
     "purchase-open": "Every pack purchases will be opened during my live stream.",
-    "next-stream": "The next stream will be on February 19th, 2021 at 9:00PM EST."
+    "shipping": "Shipping",
+    "shipping-information": "You will only receive the reverse holo, rare, V and full art. Bulk is not included except if you pay for it. Shipping is free for Montreal, Laval and Longueuil.",
+    "type": "Type",
+    "tracked": "Tracked (with bulk included depending of where in Canada)",
+    "shipping-not-included": "Shipping not included",
+    "see-shipping": "Click here to see shipping cost"
   }
 }

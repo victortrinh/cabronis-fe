@@ -33,10 +33,12 @@ export const ConfirmDialog: React.FunctionComponent<Props> = ({
     <Dialog open={open} onClose={handleClose}>
       {title && <DialogTitle>{title}</DialogTitle>}
       <DialogContent>
-        <DialogContentText>{content}</DialogContentText>
+        <DialogContentText style={{ fontWeight: 700 }}>
+          {content}
+        </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button color="secondary" onClick={onCancel}>
+        <Button color="secondary" variant="outlined" onClick={onCancel}>
           {t("cancel")}
         </Button>
         <Button color="secondary" onClick={onConfirm} autoFocus>

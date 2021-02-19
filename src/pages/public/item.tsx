@@ -81,7 +81,7 @@ const Item: React.FC = () => {
                   <div className="stock">
                     {t("quantity-in-stock")} : {item.stock}
                   </div>
-                  {item.stock > 0 && item.stock <= 5 && (
+                  {item.stock < 0 && (
                     <span className="low-stock">{t("low-stock")}</span>
                   )}
                 </>

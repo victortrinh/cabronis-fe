@@ -6,6 +6,8 @@ export const red100 = "#FFEEEC";
 export const red250 = "#f44336";
 export const red400 = "#C00000";
 
+export const orange400 = "#FF5E13";
+
 export const green100 = "#d4edda";
 export const green400 = "#155724";
 

@@ -60,6 +60,11 @@
     "to-clipboard": "dans le bloc-note.",
     "search": "Recherche",
     "purchase-open": "Tous les achats de packs seront ouverts pendant ma diffusion en direct.",
-    "next-stream": "Le prochain stream va être le 19 février 2021 à 9:00PM EST."
+    "shipping": "Livraison",
+    "shipping-information": "Vous ne recevrez que l'holo inversé, rare, V et l'art complet. Le vrac n'est pas inclus sauf si vous payez pour. Livraison gratuite pour Montréal, Laval et Longueuil.",
+    "type": "Type",
+    "tracked": "Suivi (avec vrac inclus selon l'endroit au Canada)",
+    "shipping-not-included": "Livraison non inclue.",
+    "see-shipping": "Cliquez ici pour voir les coûts de livraison"
   }
 }

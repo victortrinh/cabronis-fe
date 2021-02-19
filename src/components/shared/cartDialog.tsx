@@ -33,10 +33,16 @@ export const CartDialog: React.FunctionComponent<Props> = ({
         {t("added-to-cart-title")}
       </DialogTitle>
       <DialogContent>
-        <DialogContentText>{t("added-to-cart-content")}</DialogContentText>
+        <DialogContentText style={{ fontWeight: 700 }}>
+          {t("added-to-cart-content")}
+        </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button color="secondary" onClick={handleClick(`/shop`)}>
+        <Button
+          color="secondary"
+          variant="outlined"
+          onClick={handleClick(`/shop`)}
+        >
           {t("continue-shopping")}
         </Button>
         <Button color="secondary" onClick={handleClick(`/cart`)} autoFocus>

@@ -7,6 +7,7 @@ import {
   useTheme,
 } from "@12emake/design-system";
 import React, { useEffect, useState } from "react";
+import { defaultBoxShadow, orange400, red400 } from "../../common/colors";
 import { isPokemonStorage, setIsPokemonStorage } from "../../storage/cardType";
 import styled, { css } from "styled-components";
 
@@ -18,7 +19,6 @@ import { NoDecorationLink } from "../../components/shared/noDecorationLink";
 import { Payment } from "../../components/shared/payment";
 import ReactTwitchEmbedVideo from "react-twitch-embed-video";
 import { Shop } from "./shop";
-import { defaultBoxShadow } from "../../common/colors";
 import shop from "../../routes/pages/shop";
 import { smSpacing } from "../../common/spacing";
 import { useTranslation } from "react-i18next";
@@ -47,8 +47,14 @@ const Home = () => {
       $isMobile={isMobile}
     >
       <div className="twitch-switch">
-        {!isMobile && t("pokemon")}{" "}
-        <IconContext.Provider value={{ size: "25px" }}>
+        {!isMobile && t("pokemon")}
+        <IconContext.Provider
+          value={{
+            size: "25px",
+            color: isPokemon ? red400 : undefined,
+            style: { marginLeft: "8px" },
+          }}
+        >
           <CgPokemon />
         </IconContext.Provider>
         <StyledSwitch
@@ -59,22 +65,17 @@ const Home = () => {
             setIsPokemon(!isPokemon);
           }}
         />
-        <IconContext.Provider value={{ size: "22px" }}>
-          <BiBasketball />
-        </IconContext.Provider>{" "}
-        {!isMobile && t("basketball")}
-      </div>
-      {isPokemon && (
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            marginTop: "8px",
+        <IconContext.Provider
+          value={{
+            size: "22px",
+            color: !isPokemon ? orange400 : undefined,
+            style: { marginRight: "8px" },
           }}
         >
-          {t("next-stream")}
-        </div>
-      )}
+          <BiBasketball />
+        </IconContext.Provider>
+        {!isMobile && t("basketball")}
+      </div>
       <Grid
         className="twitch-container"
         container

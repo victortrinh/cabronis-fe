@@ -11,6 +11,7 @@ import { Price } from "../../components/shared/price";
 import { RootState } from "../../rootState";
 import { Title } from "../../components/shared/title";
 import { WarningMessages } from "../../components/shared/warningMessages";
+import faq from "../../routes/pages/faq";
 import { lgSpacing } from "../../common/spacing";
 import { lightBlack } from "../../common/colors";
 import { removeFromCart } from "../../contexts/cartContext/actions";
@@ -109,8 +110,12 @@ const Cart = () => {
                   </div>
                 </div>
               </div>
-              <div>
-                <Button color="secondary" fullWidth onClick={handleClick(item)}>
+              <div style={{ textAlign: "right" }}>
+                <Button
+                  color="secondary"
+                  variant="outlined"
+                  onClick={handleClick(item)}
+                >
                   {t("remove")}
                 </Button>
               </div>
@@ -128,8 +133,13 @@ const Cart = () => {
             />
           </div>
         </div>
-        <Payment />
+        <div className="shipping">
+          <NoDecorationLink to={`/${faq.key}`}>
+            {t("shipping-not-included")} - {t("see-shipping")}
+          </NoDecorationLink>
+        </div>
         <WarningMessages>{t("cart-explanation")}</WarningMessages>
+        <Payment />
       </Container>
     </MainContainer>
   );
@@ -226,6 +236,10 @@ const Container = styled.div`
       font-weight: 600;
       margin-left: 12px;
     }
+  }
+
+  .shipping {
+    text-align: right;
   }
 `;
 

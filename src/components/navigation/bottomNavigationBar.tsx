@@ -115,7 +115,10 @@ const BottomNavigationBar = () => {
           icon={getIcon(
             cart.path,
             <div className="cart">
-              <AiFillShopping /> <div className="cart-number">1</div>
+              <AiFillShopping />{" "}
+              {sellableItemsInCart.length > 0 && (
+                <div className="cart-number">{sellableItemsInCart.length}</div>
+              )}
             </div>,
             <div className="cart">
               <AiOutlineShopping />{" "}

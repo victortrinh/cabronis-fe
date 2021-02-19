@@ -3,7 +3,8 @@ html {
   font-family: "Mulish", sans-serif !important;
 }
 
-.MuiTypography-root {
+.MuiTypography-root,
+.MuiDialogContentText-root {
   font-family: "Mulish", sans-serif;
 }
 

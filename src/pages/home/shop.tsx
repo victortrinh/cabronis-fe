@@ -16,6 +16,7 @@ import { NoDecorationLink } from "../../components/shared/noDecorationLink";
 import { Price } from "../../components/shared/price";
 import { Title } from "../../components/shared/title";
 import { cards } from "../../hardcode/cards";
+import faq from "../../routes/pages/faq";
 import item from "../../routes/pages/item";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
@@ -102,6 +103,21 @@ export const Shop: React.FunctionComponent<Props> = ({ limit, title }) => {
               </NoDecorationLink>
             </Grid>
           ))}
+        <Grid className="card">
+          <NoDecorationLink to={`/${faq.key}`}>
+            <StyledCard $isDark={isDark}>
+              <div className="image-container">
+                <img
+                  src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                  alt="Shipping"
+                />
+              </div>
+              <CardContent className="card-content">
+                <div className="description">Shipping</div>
+              </CardContent>
+            </StyledCard>
+          </NoDecorationLink>
+        </Grid>
       </GridList>
     </Container>
   );

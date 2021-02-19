@@ -34,11 +34,11 @@ export const cards: Pack[] = [
     {
       id: "4",
       image_str:
-        "https://pokefeens.com/wp-content/uploads/2020/04/EvolutionsBoosterPacks-1.png",
-      name: "Evolutions XY Security Sealed (1)",
-      price: 35,
+        "https://jetpackcomics.com/wp-content/uploads/2020/12/pokemon_tcg_shining_fates_tins_eldegoss_v_boltund_v_cramorant_v-1.jpg",
+      name: "Shining Fates Tin (1 Random)",
+      price: 100,
       description: "",
-      stock: 15,
+      stock: 3,
       theme: ThemeEnum.Pokemon
     },
     {
@@ -97,5 +97,5 @@ export const cards: Pack[] = [
       description: "",
       stock: 7,
       theme: ThemeEnum.Pokemon
-    },
+    }
   ];
