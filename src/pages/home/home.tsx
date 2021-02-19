@@ -10,17 +10,18 @@ import React, { useEffect, useState } from "react";
 import { isPokemonStorage, setIsPokemonStorage } from "../../storage/cardType";
 import styled, { css } from "styled-components";
 
+import { BiBasketball } from "react-icons/bi";
+import { CgPokemon } from "react-icons/cg";
+import { IconContext } from "react-icons/lib";
 import { MainContainer } from "../../components/shared/mainContainer";
 import { NoDecorationLink } from "../../components/shared/noDecorationLink";
+import { Payment } from "../../components/shared/payment";
 import ReactTwitchEmbedVideo from "react-twitch-embed-video";
 import { Shop } from "./shop";
 import { defaultBoxShadow } from "../../common/colors";
 import shop from "../../routes/pages/shop";
 import { smSpacing } from "../../common/spacing";
 import { useTranslation } from "react-i18next";
-import { CgPokemon } from "react-icons/cg";
-import { BiBasketball } from "react-icons/bi";
-import { IconContext } from "react-icons/lib";
 
 const Home = () => {
   const [t] = useTranslation();
@@ -112,6 +113,9 @@ const Home = () => {
           )}
         </Hidden>
       </Grid>
+      <div className="payment">
+        <Payment />
+      </div>
       <Shop limit={8} title={t("featured")} />
       <div className="see-more">
         <NoDecorationLink to={shop.key}>
@@ -148,6 +152,11 @@ const StyledMainContainer = styled(MainContainer)<StyledMainContainerProps>`
     align-items: center;
     text-transform: uppercase;
     font-weight: 500;
+  }
+
+  .payment {
+    display: flex:
+    justify-content: center;
   }
 
   .twitch-container {

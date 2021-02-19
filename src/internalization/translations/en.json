@@ -55,6 +55,8 @@
     "cart-explanation": "Please contact the seller directly before making the payment to make sure everything that appears here is right.",
     "cart-removal-content": "Are you sure you want to remove this item from your bag?",
     "confirm": "Confirm",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "pay-by-paypal": "Payment with Paypal",
+    "pay-by-interac": "Payment with Interac"
   }
 }

@@ -53,6 +53,8 @@
     "cart-explanation": "Veuillez contacter directement le vendeur avant d'effectuer le paiement pour vous assurer que tout ce qui apparaît ici est correct.",
     "cart-removal-content": "Voulez-vous vraiment supprimer cet article de votre sac?",
     "confirm": "Confirmer",
-    "cancel": "Annuler"
+    "cancel": "Annuler",
+    "pay-by-paypal": "Paiement par Paypal",
+    "pay-by-interac": "Paiement par Interac"
   }
 }

@@ -74,7 +74,7 @@ const Cart = () => {
         </div>
         {sellableItemsInCart.map((item) => (
           <Grid container key={item.id} className="item-container">
-            <Grid item xs={4} sm={4} md={3}>
+            <Grid item xs={3} sm={4} md={3}>
               <img
                 src={item.image_str}
                 alt={item.name}
@@ -88,7 +88,7 @@ const Cart = () => {
                 <div className="item-description">{item.description}</div>
               )}
             </Grid>
-            <Grid className="column super-price" item xs={4} sm={4} md={4}>
+            <Grid className="column super-price" item xs={5} sm={4} md={4}>
               <div className="price-container">
                 {!isMobile && (
                   <div>
@@ -183,7 +183,7 @@ const Container = styled.div`
     border-bottom: 1px solid ${lightBlack};
 
     .item-name {
-      font-size: 20px;
+      font-size: 1rem;
       font-weight: 600;
       margin-bottom: 12px;
     }
@@ -212,7 +212,7 @@ const Container = styled.div`
     }
 
     .price-title {
-      font-size: 20px;
+      font-size: 1rem;
       font-weight: 600;
       margin-bottom: 12px;
     }
