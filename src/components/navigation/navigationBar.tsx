@@ -43,7 +43,7 @@ export const NavigationBar: React.FC = () => {
   const isHome = location.pathname === "/";
   const dispatch = useDispatch();
 
-  const LOGO_IMAGE_NAME = "pscBreaks.png";
+  const LOGO_IMAGE_NAME = "pscbreaks.png";
 
   const logout = () => {
     dispatch(setLoggedIn(false));

@@ -64,6 +64,17 @@ const Home = () => {
         </IconContext.Provider>{" "}
         {!isMobile && t("basketball")}
       </div>
+      {isPokemon && (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            marginTop: "8px",
+          }}
+        >
+          {t("next-stream")}
+        </div>
+      )}
       <Grid
         className="twitch-container"
         container
@@ -116,7 +127,7 @@ const Home = () => {
       <div className="payment">
         <Payment />
       </div>
-      <Shop limit={8} title={t("featured")} />
+      <Shop limit={12} title={t("featured")} />
       <div className="see-more">
         <NoDecorationLink to={shop.key}>
           <Button color={isDark ? "primary" : "secondary"}>
@@ -185,7 +196,7 @@ const StyledMainContainer = styled(MainContainer)<StyledMainContainerProps>`
       }
 
       .twitch-container {
-        margin-top: 0;
+        margin-top: 8px;
         height: calc(
           100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 150px
         );

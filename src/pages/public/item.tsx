@@ -60,14 +60,19 @@ const Item: React.FC = () => {
       <StyledContainer $isDark={isDark}>
         <Grid container>
           <Grid className="image" item xs={12} sm={12} md={6}>
-            <img src={item.image_str} alt={item.name} />
+            <img
+              src={item.image_str}
+              alt={item.name}
+              width="90%"
+              height="auto"
+            />
           </Grid>
           <Grid className="content" item xs={12} sm={12} md={6}>
             <div className="name">{item.name}</div>
             <div className="price">
               <Price value={item.price} />
             </div>
-            <div className="description">{item.description}</div>
+            <div className="description">{t("purchase-open")}</div>
             <div className="stock-wrapper">
               {item.stock <= 0 ? (
                 <div className="no-stock">{t("no-stock")}</div>
@@ -131,14 +136,10 @@ const StyledContainer = styled.div<StyledContainerProps>`
   }
 
   .image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: block;
 
     img {
-      max-width: 100%;
-      height: auto;
-      object-fit: cover;
+      object-fit: scale-down;
     }
   }
 

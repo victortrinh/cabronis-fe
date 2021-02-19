@@ -3,16 +3,17 @@ import {
   CardContent,
   Grid,
   GridList,
+  Input,
   useMediaQuery,
   useTheme,
 } from "@12emake/design-system";
+import React, { ChangeEvent, useState } from "react";
 import { darkGray, lightBlack, minimalBoxShadow } from "../../common/colors";
 import { lgSpacing, xsSpacing } from "../../common/spacing";
 
 import { MainContainer } from "../../components/shared/mainContainer";
 import { NoDecorationLink } from "../../components/shared/noDecorationLink";
 import { Price } from "../../components/shared/price";
-import React from "react";
 import { Title } from "../../components/shared/title";
 import { cards } from "../../hardcode/cards";
 import item from "../../routes/pages/item";
@@ -30,6 +31,7 @@ export const Shop: React.FunctionComponent<Props> = ({ limit, title }) => {
   const isDark = theme.palette.type === "dark";
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const isTablet = useMediaQuery(theme.breakpoints.down("md"));
+  const [searchTerm, setSearchTerm] = useState<string>();
 
   const getColumns = () => {
     if (isMobile) {
@@ -43,6 +45,11 @@ export const Shop: React.FunctionComponent<Props> = ({ limit, title }) => {
     return 4;
   };
 
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const text = e.currentTarget.value;
+    setSearchTerm(text);
+  };
+
   const innerContainer = (
     <Container container justify="center" alignItems="center">
       {(limit || !isMobile) && (
@@ -50,31 +57,51 @@ export const Shop: React.FunctionComponent<Props> = ({ limit, title }) => {
           {title || t("shop")}
         </Title>
       )}
+      {!limit && (
+        <div className="search">
+          <Input
+            autoComplete="nope"
+            color="secondary"
+            type="text"
+            label={t("search")}
+            variant="outlined"
+            fullWidth
+            onChange={handleChange}
+          />
+        </div>
+      )}
       <GridList
         className="card-list"
         cellHeight="auto"
         cols={getColumns()}
         spacing={20}
       >
-        {cards.slice(0, limit).map((card) => (
-          <Grid className="card" key={card.id}>
-            <NoDecorationLink to={`/${item.key}/${card.id}`}>
-              <StyledCard $isDark={isDark}>
-                <div className="image-container">
-                  <img src={card.image_str} alt={card.name} />
-                </div>
-                <CardContent className="card-content">
-                  <>
-                    <div className="description">{card.name}</div>
-                    <div className="price">
-                      <Price value={card.price} />
-                    </div>
-                  </>
-                </CardContent>
-              </StyledCard>
-            </NoDecorationLink>
-          </Grid>
-        ))}
+        {cards
+          .filter((x) =>
+            searchTerm
+              ? x.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1
+              : x
+          )
+          .slice(0, limit)
+          .map((card) => (
+            <Grid className="card" key={card.id}>
+              <NoDecorationLink to={`/${item.key}/${card.id}`}>
+                <StyledCard $isDark={isDark}>
+                  <div className="image-container">
+                    <img src={card.image_str} alt={card.name} />
+                  </div>
+                  <CardContent className="card-content">
+                    <>
+                      <div className="description">{card.name}</div>
+                      <div className="price">
+                        <Price value={card.price} />
+                      </div>
+                    </>
+                  </CardContent>
+                </StyledCard>
+              </NoDecorationLink>
+            </Grid>
+          ))}
       </GridList>
     </Container>
   );
@@ -93,6 +120,10 @@ const Container = styled(Grid)`
 
   .title {
     text-align: center;
+  }
+
+  .search {
+    margin-bottom: 32px;
   }
 `;
 

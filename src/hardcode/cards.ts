@@ -5,51 +5,97 @@ export const cards: Pack[] = [
     {
       id: "1",
       image_str:
-        "https://cdn.shopify.com/s/files/1/0518/4670/9447/products/the-pokemon-company-international-pokemon-tcg-sword-shield-ss04-vivid-voltage-booster-single-pack-random_2048x_0d89501e-0cb1-4fdc-9a3a-edfb19745907_360x.jpg?v=1612983149",
-      name: "Lorem ipsum dolor sit amet",
-      price: 10.25,
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec urna nec lacus commodo commodo. Nunc eu condimentum magna. Vestibulum nibh nulla, luctus at eleifend finibus, vestibulum maximus elit.",
-      stock: 30,
+        "https://www.waifuwatch.com/wp-content/uploads/2020/12/Shining-Fates-Boosters.jpg",
+      name: "Shining Fates Booster Pack (1)",
+      price: 20,
+      description: "",
+      stock: 100,
       theme: ThemeEnum.Pokemon
     },
     {
       id: "2",
-      image_str:
-        "https://cdn.shopify.com/s/files/1/0518/4670/9447/products/VividETB_360x.jpg?v=1612212834",
-      name: "Kelly's Vivid Voltage ETB",
-      price: 110,
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec urna nec lacus commodo commodo. Nunc eu condimentum magna. Vestibulum nibh nulla, luctus at eleifend finibus, vestibulum maximus elit.",
-      stock: 5,
+      image_str: `https://pokefeens.com/wp-content/uploads/2019/11/HiddenFatesBoosterPacks-1.png`,
+      name: "Hidden Fates Booster Pack (1)",
+      price: 18,
+      description: "",
+      stock: 25,
       theme: ThemeEnum.Pokemon
     },
     {
       id: "3",
       image_str:
-        "https://cdn.shopify.com/s/files/1/0518/4670/9447/products/71OASvJQ3eL._AC_SL1000_360x.jpg?v=1612211129",
-      name: "Kelly's Darkness Ablaze Booster Pack",
-      price: 8.25,
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec urna nec lacus commodo commodo. Nunc eu condimentum magna. Vestibulum nibh nulla, luctus at eleifend finibus, vestibulum maximus elit.",
-      stock: 17,
+        "https://pokefeens.com/wp-content/uploads/2020/04/EvolutionsBoosterPacks-1.png",
+      name: "Evolutions XY Booster Pack (1)",
+      price: 19,
+      description: "",
+      stock: 13,
       theme: ThemeEnum.Pokemon
     },
     {
       id: "4",
       image_str:
-        "https://cdn.shopify.com/s/files/1/0518/4670/9447/products/51N13y2iBhL._AC_SX425_9f9e4e43-a068-4e8a-9024-a232f656e050_360x.jpg?v=1612210092",
-      name: "Kelly's Cosmic Eclipse",
-      price: 10.25,
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec urna nec lacus commodo commodo. Nunc eu condimentum magna. Vestibulum nibh nulla, luctus at eleifend finibus, vestibulum maximus elit.",
-      stock: 1,
+        "https://pokefeens.com/wp-content/uploads/2020/04/EvolutionsBoosterPacks-1.png",
+      name: "Evolutions XY Security Sealed (1)",
+      price: 35,
+      description: "",
+      stock: 15,
       theme: ThemeEnum.Pokemon
     },
     {
       id: "5",
       image_str:
-        "https://cdn.shopify.com/s/files/1/0518/4670/9447/products/PK_SMUM_packs5_9d4e99ea-73e8-4571-ba39-09a2405b7cfb_360x.jpg?v=1612210718",
-      name: "Kelly's Unified Minds",
-      price: 10.25,
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec urna nec lacus commodo commodo. Nunc eu condimentum magna. Vestibulum nibh nulla, luctus at eleifend finibus, vestibulum maximus elit.",
-      stock: 0,
+        "https://www.phdgames.com/wp-content/uploads/2020/09/Pokemon_VividVoltage_02_booster-packs.jpg",
+      name: "Vivid Voltage Booster Pack (1)",
+      price: 9,
+      description: "",
+      stock: 36,
+      theme: ThemeEnum.Pokemon
+    },
+    {
+      id: "6",
+      image_str:
+        "https://www.titancards.co.uk/image/cache/catalog/products/Sealed_Products/Pokemon_Cosmic_Eclipse_Booster_Packs-1000x1000w.jpg",
+      name: "Cosmic Eclipse Booster Pack (1)",
+      price: 14,
+      description: "",
+      stock: 6,
+      theme: ThemeEnum.Pokemon
+    },
+    {
+      id: "7",
+      image_str:
+        "https://www.trainerhub.net.au/assets/full/PKMTCG-SSV.jpg?20201218204340",
+      name: "Shiny Star V Pack JPN (1)",
+      price: 20,
+      description: "",
+      stock: 20,
+      theme: ThemeEnum.Pokemon
+    },
+    {
+      id: "10",
+      image_str: `https://www.theboardgamehut.co.uk/wp-content/uploads/2020/12/pokemonshiningfatesetb-416x397.png`,
+      name: "Shining Fates Elite Trainer Box",
+      price: 175,
+      description: "",
+      stock: 2,
+      theme: ThemeEnum.Pokemon
+    },
+    {
+      id: "8",
+      image_str: `${process.env.PUBLIC_URL}/pokemon.jpg`,
+      name: "Hidden Fates Tin (1)",
+      price: 70,
+      description: "",
+      stock: 15,
+      theme: ThemeEnum.Pokemon
+    },
+    {
+      id: "9",
+      image_str: `${process.env.PUBLIC_URL}/pokemon2.jpg`,
+      name: "Hidden Fates Charizard Tin",
+      price: 80,
+      description: "",
+      stock: 7,
       theme: ThemeEnum.Pokemon
     },
   ];

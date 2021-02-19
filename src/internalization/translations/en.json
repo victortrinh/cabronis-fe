@@ -59,6 +59,9 @@
     "pay-by-paypal": "Payment with Paypal",
     "pay-by-interac": "Payment with Interac",
     "copied": "Copied",
-    "to-clipboard": "to clipboard."
+    "to-clipboard": "to clipboard.",
+    "search": "Search",
+    "purchase-open": "Every pack purchases will be opened during my live stream.",
+    "next-stream": "The next stream will be on February 19th, 2021 at 9:00PM EST."
   }
 }
