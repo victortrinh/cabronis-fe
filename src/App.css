@@ -9,4 +9,10 @@ html {
 
 button {
   font-family: "Mulish", sans-serif;
+  font-weight: 900;
+}
+
+.MuiButton-label {
+  font-family: "Mulish", sans-serif;
+  font-weight: 700;
 }

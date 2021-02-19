@@ -57,6 +57,8 @@
     "confirm": "Confirm",
     "cancel": "Cancel",
     "pay-by-paypal": "Payment with Paypal",
-    "pay-by-interac": "Payment with Interac"
+    "pay-by-interac": "Payment with Interac",
+    "copied": "Copied",
+    "to-clipboard": "to clipboard."
   }
 }

@@ -27,8 +27,7 @@ export const Title: React.FunctionComponent<TitleProps> = ({
 
 const StyledTitle = styled.div`
   font-size: 24px;
-  font-weight: 400;
-  font-family: "Odibee Sans", cursive;
+  font-weight: 900;
   text-transform: uppercase;
   margin-bottom: 32px;
 `;

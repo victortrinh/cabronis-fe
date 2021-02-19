@@ -82,7 +82,7 @@ const Item: React.FC = () => {
                 </>
               )}
             </div>
-            {item.stock >= 0 && (
+            {item.stock > 0 && (
               <Select
                 color="primary"
                 value={quantity}
@@ -146,8 +146,7 @@ const StyledContainer = styled.div<StyledContainerProps>`
     margin-top: ${smSpacing};
 
     .name {
-      font-family: "Odibee Sans", cursive;
-      font-weight: 400;
+      font-weight: 700;
       font-size: 32px;
       line-height: 35.46px;
       text-transform: uppercase;

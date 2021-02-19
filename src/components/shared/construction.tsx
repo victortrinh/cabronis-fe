@@ -26,9 +26,8 @@ const Container = styled.div`
   text-align: center;
 
   .title {
-    font-family: "Odibee Sans", cursive;
     font-size: 4rem;
-    font-weight: bold;
+    font-weight: 900;
     text-transform: uppercase;
   }
 

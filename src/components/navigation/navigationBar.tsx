@@ -43,7 +43,7 @@ export const NavigationBar: React.FC = () => {
   const isHome = location.pathname === "/";
   const dispatch = useDispatch();
 
-  const LOGO_IMAGE_NAME = isDark ? "pscBreaks.svg" : "pscBreaks-dark.svg";
+  const LOGO_IMAGE_NAME = "pscBreaks.png";
 
   const logout = () => {
     dispatch(setLoggedIn(false));
@@ -243,7 +243,7 @@ const StyledLogoContainer = styled.div<StyledLogoContainerProps>`
 
   .title {
     font-size: 16px;
-    font-weight: 700;
+    font-weight: 900;
   }
 
   ${(props) =>

@@ -1,13 +1,25 @@
-import { Grid } from "@12emake/design-system";
-import React from "react";
+import { Grid, Snackbar } from "@12emake/design-system";
+import React, { MouseEvent, useState } from "react";
+
 import { lightBlack } from "../../common/colors";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 
 export const Payment: React.FunctionComponent = () => {
   const [t] = useTranslation();
-  const PAYPAL_LOGO = "paypal.svg";
+  const PAYPAL_LOGO = "paypal.png";
   const ETRANSFER_LOGO = "e-transfer.png";
+  const [openSnackbar, setOpenSnackbar] = useState(false);
+  const [copiedMessage, setCopiedMessage] = useState<string>();
+
+  const copyToClipboard = (e: MouseEvent<HTMLDivElement>) => {
+    const text = e.currentTarget.textContent;
+    if (text) {
+      setCopiedMessage(text);
+      navigator.clipboard.writeText(text);
+      setOpenSnackbar(true);
+    }
+  };
 
   const pokemon = (
     <Grid item xs={12} sm={12} md={6}>
@@ -25,17 +37,17 @@ export const Payment: React.FunctionComponent = () => {
             alt="Paypal"
             width="80px"
             height="auto"
-          />{" "}
-          https://paypal.me/PSCChato
+          />
+          paypal.me/PSCChato
         </a>
         <div className="payment-subtitle">{t("pay-by-interac")}</div>
-        <div className="e-transfer link">
+        <div className="e-transfer link" onClick={copyToClipboard}>
           <img
             src={`${process.env.PUBLIC_URL}/${ETRANSFER_LOGO}`}
             alt="Paypal"
             width="80px"
             height="auto"
-          />{" "}
+          />
           paulmechato01_2@hotmail.com
         </div>
       </div>
@@ -58,17 +70,17 @@ export const Payment: React.FunctionComponent = () => {
             alt="Paypal"
             width="80px"
             height="auto"
-          />{" "}
-          https://paypal.me/R3yElvis
+          />
+          paypal.me/R3yElvis
         </a>
         <div className="payment-subtitle">{t("pay-by-interac")}</div>
-        <div className="e-transfer link">
+        <div className="e-transfer link" onClick={copyToClipboard}>
           <img
             src={`${process.env.PUBLIC_URL}/${ETRANSFER_LOGO}`}
             alt="Paypal"
             width="80px"
             height="auto"
-          />{" "}
+          />
           elvis_reynoso@hotmail.ca
         </div>
       </div>
@@ -77,6 +89,16 @@ export const Payment: React.FunctionComponent = () => {
 
   return (
     <StyledPayment container>
+      <Snackbar
+        anchorOrigin={{
+          vertical: "top",
+          horizontal: "center",
+        }}
+        open={openSnackbar}
+        autoHideDuration={6000}
+        onClose={() => setOpenSnackbar(false)}
+        message={`${t("copied")} "${copiedMessage}" ${t("to-clipboard")}`}
+      />
       {pokemon}
       {sports}
     </StyledPayment>
@@ -85,15 +107,16 @@ export const Payment: React.FunctionComponent = () => {
 
 const StyledPayment = styled(Grid)`
   .payment-title {
-    font-family: "Odibee Sans", cursive;
+    font-weight: 700;
     text-transform: uppercase;
     font-size: 22px;
     border-bottom: 1px solid ${lightBlack};
+    padding-bottom: 12px;
   }
 
   .payment-subtitle {
     margin: 12px 0;
-    font-weight: 700;
+    font-weight: 600;
   }
 
   .MuiGrid-item {
@@ -114,6 +137,18 @@ const StyledPayment = styled(Grid)`
     margin-top: 8px;
     display: flex;
     align-items: center;
+    cursor: pointer;
+
+    text-decoration: none;
+
+    &:focus,
+    &:hover,
+    &:visited,
+    &:link,
+    &:active {
+      text-decoration: none;
+      color: inherit;
+    }
 
     img {
       margin-right: 18px;

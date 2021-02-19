@@ -132,8 +132,7 @@ const StyledCard = styled(Card)<StyledCardProps>`
     text-align: center;
 
     .description {
-      font-family: "Odibee Sans", cursive;
-      font-weight: 400;
+      font-weight: 700;
       font-size: 20px;
       line-height: 22.16px;
       text-transform: uppercase;

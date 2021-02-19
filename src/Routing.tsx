@@ -1,7 +1,7 @@
 import "./App.css";
 
-import { Router, Redirect, Route, Switch } from "react-router-dom";
 import React, { useEffect } from "react";
+import { Redirect, Route, Router, Switch } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import BottomNavigationBar from "./components/navigation/bottomNavigationBar";
@@ -11,6 +11,7 @@ import { NavigationBar } from "./components/navigation/navigationBar";
 import PwaInstallPopupIOS from "react-pwa-install-ios";
 import { RootState } from "./rootState";
 import Settings from "./pages/public/settings";
+import { createBrowserHistory } from "history";
 import { isLoggedIn } from "./storage/authentication";
 import routes from "./routes";
 import { setLoggedIn } from "./contexts/appContext/actions";
@@ -18,7 +19,6 @@ import settings from "./routes/pages/settings";
 import signIn from "./routes/pages/authentication/signIn";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
-import { createBrowserHistory } from "history";
 
 const history = createBrowserHistory();
 

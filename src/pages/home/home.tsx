@@ -144,14 +144,13 @@ type StyledMainContainerProps = {
 
 const StyledMainContainer = styled(MainContainer)<StyledMainContainerProps>`
   .twitch-switch {
-    font-family: "Odibee Sans", cursive;
     font-size: 20px;
     margin-top: 12px;
     display: flex;
     justify-content: center;
     align-items: center;
     text-transform: uppercase;
-    font-weight: 500;
+    font-weight: 900;
   }
 
   .payment {

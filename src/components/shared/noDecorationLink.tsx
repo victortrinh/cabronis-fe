@@ -20,8 +20,7 @@ const StyledLink = styled(Link)`
   }
 
   .MuiButton-label {
-    font-family: "Odibee Sans", cursive;
-    font-size: 16px;
+    font-size: 13px;
   }
 
   .MuiListItemText-root,
