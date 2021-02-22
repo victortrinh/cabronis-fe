@@ -1,8 +1,8 @@
-import NotFound from "../../pages/notFound";
 import { Route } from "../route";
+import NotFound from "../../pages/notFound";
 
 const notFound: Route = {
-  key: "home",
+  key: "notFound",
   component: NotFound,
 };
 

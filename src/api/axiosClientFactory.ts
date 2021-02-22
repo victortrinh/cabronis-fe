@@ -1,5 +1,7 @@
-import { authenticationToken } from "../storage/authentication";
 import axios from "axios";
+
+import { authenticationToken } from "../storage/authentication";
+
 import { env } from "./env";
 
 export const getAxiosClient = () => {

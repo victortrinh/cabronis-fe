@@ -12,6 +12,10 @@ import {
   useTheme,
 } from "@12emake/design-system";
 import { Link, useHistory, useLocation } from "react-router-dom";
+import {
+  getCurrentUser,
+  removeCurrentUser,
+} from "../../storage/authentication";
 import { lightBlack, red250 } from "../../common/colors";
 import styled, { css } from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
@@ -21,12 +25,13 @@ import React from "react";
 import { RootState } from "../../rootState";
 import cart from "../../routes/pages/cart";
 import faq from "../../routes/pages/faq";
-import { removeCurrentUser } from "../../storage/authentication";
+import sellable from "../../routes/pages/seller/sellable";
 import { setLoggedIn } from "../../contexts/appContext/actions";
 import settings from "../../routes/pages/settings";
 import shop from "../../routes/pages/shop";
 import signIn from "../../routes/pages/authentication/signIn";
 import { useTranslation } from "react-i18next";
+import users from "../../routes/pages/admin/users";
 import wishlist from "../../routes/pages/wishlist";
 
 export const NavigationBar: React.FC = () => {
@@ -44,6 +49,8 @@ export const NavigationBar: React.FC = () => {
   const dispatch = useDispatch();
 
   const LOGO_IMAGE_NAME = "pscbreaks.png";
+
+  const roles = getCurrentUser()?.roles;
 
   const logout = () => {
     dispatch(setLoggedIn(false));
@@ -65,6 +72,27 @@ export const NavigationBar: React.FC = () => {
                 {t("shop")}
               </Button>
             </NoDecorationLink>
+            {roles?.includes("seller") && (
+              <NoDecorationLink to={`/${sellable.key}`}>
+                <Button
+                  color={isDark ? "primary" : "secondary"}
+                  variant="contained"
+                >
+                  {t("seller")}
+                </Button>
+              </NoDecorationLink>
+            )}
+            {roles?.includes("admin") && (
+              <NoDecorationLink to={`/${users.key}`}>
+                <Button
+                  color={isDark ? "primary" : "secondary"}
+                  variant="outlined"
+                  className="users"
+                >
+                  {t("users")}
+                </Button>
+              </NoDecorationLink>
+            )}
           </div>
         </Hidden>
         {!isHome && (
@@ -174,8 +202,13 @@ type StyledNavigationBar = {
 const StyledNavigationBar = styled(ExternalNavigationBar)<StyledNavigationBar>`
   border-bottom: 1px solid ${lightBlack};
   box-shadow: none !important;
+
   img {
     height: 35px;
+  }
+
+  .users {
+    margin-left: 8px;
   }
 
   .sign-in,

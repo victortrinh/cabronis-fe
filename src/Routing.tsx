@@ -1,9 +1,10 @@
 import "./App.css";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Redirect, Route, Router, Switch } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
+import { AuthenticationAPI } from "./api/user";
 import BottomNavigationBar from "./components/navigation/bottomNavigationBar";
 import { IconContext } from "react-icons/lib";
 import { IoShareOutline } from "react-icons/io5";
@@ -13,6 +14,7 @@ import { RootState } from "./rootState";
 import Settings from "./pages/public/settings";
 import { createBrowserHistory } from "history";
 import { isLoggedIn } from "./storage/authentication";
+import notFound from "./routes/pages/notFound";
 import routes from "./routes";
 import { setLoggedIn } from "./contexts/appContext/actions";
 import settings from "./routes/pages/settings";
@@ -79,7 +81,11 @@ const Routing: React.FC<Props> = ({ darkModeOn, height, toggleDarkModeOn }) => {
               />
             )}
           />
-          {routes.map(({ key, needAuthentication, ...props }) => {
+          {routes.map(({ key, needAuthentication, role, ...props }) => {
+            if (role) {
+              return <RoleRoute key={key} role={role} {...props} />;
+            }
+
             if (needAuthentication) {
               return <PrivateRoute key={key} {...props} />;
             }
@@ -165,6 +171,41 @@ const PrivateRoute = ({ component: Component, ...rest }: any) => {
       {...rest}
       render={(props) =>
         loggedIn ? <Component {...props} /> : <Redirect to={`/${signIn.key}`} />
+      }
+    />
+  );
+};
+
+const RoleRoute = ({ component: Component, role, ...rest }: any) => {
+  const authenticationAPI: AuthenticationAPI = new AuthenticationAPI();
+  const [roles, setRoles] = useState<string[]>();
+  const { loggedIn } = useSelector((state: RootState) => ({
+    loggedIn: state.appContext.loggedIn,
+  }));
+
+  useEffect(() => {
+    const getRoles = async () => {
+      await authenticationAPI.getRoles().then((data: any) => {
+        setRoles(data.response.roles);
+      });
+    };
+
+    getRoles();
+  }, []);
+
+  if (!roles) {
+    return null;
+  }
+
+  return (
+    <Route
+      {...rest}
+      render={(props) =>
+        loggedIn && roles?.includes(role) ? (
+          <Component {...props} />
+        ) : (
+          <Redirect to={`/${notFound.key}`} />
+        )
       }
     />
   );

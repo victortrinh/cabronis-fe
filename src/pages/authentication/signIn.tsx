@@ -28,9 +28,9 @@ const SignIn: React.FC = () => {
   const [errorMessages, setErrorMessages] = useState();
   const dispatch = useDispatch();
 
-  const onSubmit = (data: LoginData) => {
+  const onSubmit = (loginData: LoginData) => {
     const login = async () => {
-      await authenticationAPI.login(data).then((data: any) => {
+      await authenticationAPI.login(loginData).then((data: any) => {
         if (data.isError) {
           setErrorMessages(data.response);
         } else {

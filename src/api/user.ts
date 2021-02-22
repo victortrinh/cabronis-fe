@@ -4,6 +4,7 @@ const client = getAxiosClient();
 
 export type User = {
   email: string;
+  roles?: string;
 }
 
 export type LoginData = User & {
@@ -34,6 +35,10 @@ export class AuthenticationAPI {
 
   async registerUser(data: RegisterData) {
     return this.perform("post", `${baseUserURL}/register`, data);
+  }
+
+  async getRoles() {
+    return this.perform("get", `${baseUserURL}/roles`);
   }
 
   async perform(method: any, resource: any, data: LoginData | UserChangePassword | RegisterData | null = null) {

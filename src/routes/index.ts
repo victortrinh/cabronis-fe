@@ -8,9 +8,11 @@ import item from "./pages/item";
 import notFound from "./pages/notFound";
 import shop from "./pages/shop";
 import wishlist from "./pages/wishlist";
+import users from "./pages/admin/users";
 import signIn from "./pages/authentication/signIn";
 import signUp from "./pages/authentication/signUp";
+import sellable from "./pages/seller/sellable";
 
-const routes: Route[] = [account, cart, faq, item, shop, signIn, signUp, wishlist, home, notFound];
+const routes: Route[] = [account, cart, faq, item, shop, signIn, signUp, wishlist, home, users, sellable, notFound];
 
 export default routes;
