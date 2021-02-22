@@ -1,11 +1,3 @@
-import { ThemeEnum } from "./enum/themeEnum";
+import { Sellable } from "./sellable";
 
-export type Pack = {
-    id: string;
-    name: string;
-    image_str: string;
-    description: string;
-    stock: number;
-    price: number;
-    theme: ThemeEnum;
-};
+export type Pack = Sellable;

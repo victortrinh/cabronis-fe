@@ -85,11 +85,11 @@ export const Shop: React.FunctionComponent<Props> = ({ limit, title }) => {
           )
           .slice(0, limit)
           .map((card) => (
-            <Grid className="card" key={card.id}>
-              <NoDecorationLink to={`/${item.key}/${card.id}`}>
+            <Grid className="card" key={card.sellable_id}>
+              <NoDecorationLink to={`/${item.key}/${card.sellable_id}`}>
                 <StyledCard $isDark={isDark}>
                   <div className="image-container">
-                    <img src={card.image_str} alt={card.name} />
+                    <img src={card.image_path} alt={card.name} />
                   </div>
                   <CardContent className="card-content">
                     <>

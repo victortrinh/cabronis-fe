@@ -1,7 +1,7 @@
-import { ADD_TO_CART, CartActionTypes, REMOVE_FROM_CART } from "./types";
-import { CartContextState, cartContextState } from "./state";
-
 import { setCart } from "../../storage/cartSession";
+
+import { CartContextState, cartContextState } from "./state";
+import { ADD_TO_CART, CartActionTypes, REMOVE_FROM_CART } from "./types";
 
 export function cartReducer(
   state = cartContextState,
@@ -11,9 +11,9 @@ export function cartReducer(
     case ADD_TO_CART:
       let cart;
 
-      if (state.cart.map((x) => x.id).includes(action.payload.id)) {
+      if (state.cart.map((x) => x.sellable_id).includes(action.payload.sellable_id)) {
         cart = state.cart.map((content) =>
-          content.id === action.payload.id
+          content.sellable_id === action.payload.sellable_id
             ? {
                 ...content,
                 quantity: content.quantity + action.payload.quantity,
@@ -31,7 +31,7 @@ export function cartReducer(
       };
     case REMOVE_FROM_CART:
       const cartRemoval = state.cart.filter(
-        (pack) => pack.id !== action.payload.id
+        (pack) => pack.sellable_id !== action.payload.sellable_id
       );
       setCart(cartRemoval);
 

@@ -1,4 +1,7 @@
 export enum ThemeEnum {
     Pokemon = "pokemon",
-    Basketball = "basketball"
+    Basketball = "basketball",
+    Football = "football",
+    Baseball = "baseball",
+    Hockey = "hockey"
 };

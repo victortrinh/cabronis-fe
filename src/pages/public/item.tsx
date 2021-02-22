@@ -23,7 +23,7 @@ import { useTranslation } from "react-i18next";
 
 const Item: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const item = cards.find((card) => card.id === id);
+  const item = cards.find((card) => card.sellable_id === id);
   const theme = useTheme();
   const isDark = theme.palette.type === "dark";
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
@@ -61,7 +61,7 @@ const Item: React.FC = () => {
         <Grid container>
           <Grid className="image" item xs={12} sm={12} md={6}>
             <img
-              src={item.image_str}
+              src={item.image_path}
               alt={item.name}
               width="90%"
               height="auto"

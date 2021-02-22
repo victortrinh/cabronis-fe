@@ -74,10 +74,10 @@ const Cart = () => {
           </div>
         </div>
         {sellableItemsInCart.map((item) => (
-          <Grid container key={item.id} className="item-container">
+          <Grid container key={item.sellable_id} className="item-container">
             <Grid item xs={3} sm={4} md={3}>
               <img
-                src={item.image_str}
+                src={item.image_path}
                 alt={item.name}
                 width="100%"
                 height="auto"

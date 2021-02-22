@@ -2,26 +2,21 @@ import { getAxiosClient } from "./axiosClientFactory";
 
 const client = getAxiosClient();
 
-export type LoginData = {
+export type User = {
   email: string;
+}
+
+export type LoginData = User & {
   password: string;
 };
 
-export type RegisterData = {
-    email: string;
+export type RegisterData = LoginData & {
     first_name: string;
     last_name: string;
-    password: string;
 };
 
-export type User = {
-    email: string;
-}
-
-export type UserChangePassword = {
-    email: string;
+export type UserChangePassword = LoginData & {
     current_password: string;
-    password: string;
     confirm_password: string;
 };
 
