@@ -74,7 +74,7 @@ const Home = () => {
         >
           <BiBasketball />
         </IconContext.Provider>
-        {!isMobile && t("basketball")}
+        {!isMobile && t("sports")}
       </div>
       <Grid
         className="twitch-container"

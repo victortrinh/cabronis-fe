@@ -37,7 +37,7 @@
     "install-pscbreaks-ending": "Appuyez simplement sur",
     "install-pscbreaks-ending-2": "puis 'Ajouter sur l'écran d'accueil'",
     "pokemon": "Pokemon",
-    "basketball": "Sports",
+    "sports": "Sports",
     "quantity-in-stock": "Quantité en stock",
     "no-stock": "Sold out",
     "added-to-cart-title": "Ajouté avec succès au panier!",
@@ -65,6 +65,19 @@
     "type": "Type",
     "tracked": "Suivi (avec vrac inclus selon l'endroit au Canada)",
     "shipping-not-included": "Livraison non inclue.",
-    "see-shipping": "Cliquez ici pour voir les coûts de livraison"
+    "see-shipping": "Cliquez ici pour voir les coûts de livraison",
+    "none": "Aucune",
+    "category": "Catégorie",
+    "basketball": "Basketball",
+    "hockey": "Hockey",
+    "football": "Football",
+    "baseball": "Baseball",
+    "empty-products": "Il n'y a aucun produit encore! Rajoutes-en svp.",
+    "add-product": "Ajouter un produit",
+    "product-image": "L'image du produit",
+    "product-description": "Description du produit",
+    "name": "Nom",
+    "description": "Description",
+    "upload-picture": "Téléverser l'image"
   }
 }

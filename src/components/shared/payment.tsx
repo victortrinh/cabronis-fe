@@ -57,7 +57,7 @@ export const Payment: React.FunctionComponent = () => {
   const sports = (
     <Grid item xs={12} sm={12} md={6}>
       <div className="payment-row">
-        <div className="payment-title">{t("basketball")}</div>
+        <div className="payment-title">{t("sports")}</div>
         <div className="payment-subtitle">{t("pay-by-paypal")}</div>
         <a
           className="link"

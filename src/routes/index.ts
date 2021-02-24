@@ -11,8 +11,23 @@ import wishlist from "./pages/wishlist";
 import users from "./pages/admin/users";
 import signIn from "./pages/authentication/signIn";
 import signUp from "./pages/authentication/signUp";
+import addProduct from "./pages/seller/addProduct";
 import sellable from "./pages/seller/sellable";
 
-const routes: Route[] = [account, cart, faq, item, shop, signIn, signUp, wishlist, home, users, sellable, notFound];
+const routes: Route[] = [
+  account,
+  cart,
+  faq,
+  item,
+  shop,
+  signIn,
+  signUp,
+  wishlist,
+  home,
+  users,
+  addProduct,
+  sellable,
+  notFound,
+];
 
 export default routes;

@@ -1,4 +1,4 @@
-import { AuthenticationAPI, LoginData } from "../../api/user";
+import { AuthenticationAPI, User } from "../../api/user";
 import { Button, Grid, Input } from "@12emake/design-system";
 import React, { useState } from "react";
 import { Redirect, useLocation } from "react-router-dom";
@@ -28,7 +28,7 @@ const SignIn: React.FC = () => {
   const [errorMessages, setErrorMessages] = useState();
   const dispatch = useDispatch();
 
-  const onSubmit = (loginData: LoginData) => {
+  const onSubmit = (loginData: User) => {
     const login = async () => {
       await authenticationAPI.login(loginData).then((data: any) => {
         if (data.isError) {

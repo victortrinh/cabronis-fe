@@ -65,20 +65,4 @@ const Container = styled(MainContainer)`
   .information {
     margin-bottom: 20px;
   }
-
-  table {
-    text-align: left;
-  }
-
-  table,
-  th,
-  td {
-    border: 1px solid black;
-    border-collapse: collapse;
-  }
-
-  th,
-  td {
-    padding: 15px;
-  }
 `;

@@ -10,14 +10,17 @@ import { appReducer } from "./contexts/appContext/reducer";
 import { AppActionTypes } from "./contexts/appContext/types";
 import { cartReducer } from "./contexts/cartContext/reducer";
 import { CartActionTypes } from "./contexts/cartContext/types";
+import { packReducer } from "./contexts/packContext/reducer";
+import { userReducer } from "./contexts/userContext/reducer";
 
 const rootReducer: Reducer<
   RootState,
-  | AppActionTypes
-  | CartActionTypes
+  AppActionTypes | CartActionTypes
 > = combineReducers({
   appContext: appReducer,
-  cartContext: cartReducer
+  cartContext: cartReducer,
+  packContext: packReducer,
+  userContext: userReducer,
 });
 
 let middleware = applyMiddleware(thunk as ThunkMiddleware<RootState>);

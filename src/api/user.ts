@@ -3,29 +3,27 @@ import { getAxiosClient } from "./axiosClientFactory";
 const client = getAxiosClient();
 
 export type User = {
+  user_id?: string;
+  first_name?: string;
+  last_name?: string;
   email: string;
   roles?: string;
-}
+  password?: string;
+};
 
-export type LoginData = User & {
+export type UserChangePassword = {
+  user_id: string;
+  email: string;
+  current_password: string;
   password: string;
-};
-
-export type RegisterData = LoginData & {
-    first_name: string;
-    last_name: string;
-};
-
-export type UserChangePassword = LoginData & {
-    current_password: string;
-    confirm_password: string;
+  confirm_password: string;
 };
 
 const baseAuthURL = "/api/auth";
 const baseUserURL = "/api/user";
 
 export class AuthenticationAPI {
-  async login(data: LoginData) {
+  async login(data: User) {
     return this.perform("post", `${baseAuthURL}/login`, data);
   }
 
@@ -33,7 +31,7 @@ export class AuthenticationAPI {
     return this.perform("post", `${baseUserURL}/changePassword`, data);
   }
 
-  async registerUser(data: RegisterData) {
+  async registerUser(data: User) {
     return this.perform("post", `${baseUserURL}/register`, data);
   }
 
@@ -41,17 +39,21 @@ export class AuthenticationAPI {
     return this.perform("get", `${baseUserURL}/roles`);
   }
 
-  async perform(method: any, resource: any, data: LoginData | UserChangePassword | RegisterData | null = null) {
+  async getUsers() {
+    return this.perform("get", `${baseUserURL}/`);
+  }
+
+  async perform(method: any, resource: any, data: User | null = null) {
     return client({
       method,
       url: resource,
-      data
+      data,
     }).then(
       (resp: any) => ({ isError: false, response: resp.data }),
       (error: any) => ({
-          isError: true,
-          response: error.response?.data?.message ?? "Error with back-end"
-        })
+        isError: true,
+        response: error.response?.data?.message ?? "Error with back-end",
+      })
     );
   }
 }

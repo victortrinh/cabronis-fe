@@ -39,7 +39,7 @@
     "install-pscbreaks-ending": "Just tap",
     "install-pscbreaks-ending-2": "then 'Add to Home Screen'",
     "pokemon": "Pokemon",
-    "basketball": "Sports",
+    "sports": "Sports",
     "quantity-in-stock": "Quantity in stock",
     "no-stock": "Sold out",
     "added-to-cart-title": "Succesfully added to cart!",
@@ -67,6 +67,21 @@
     "type": "Type",
     "tracked": "Tracked (with bulk included depending of where in Canada)",
     "shipping-not-included": "Shipping not included",
-    "see-shipping": "Click here to see shipping cost"
+    "see-shipping": "Click here to see shipping cost",
+    "category": "Category",
+    "basketball": "Basketball",
+    "hockey": "Hockey",
+    "football": "Football",
+    "baseball": "Baseball",
+    "empty-products": "There are no products yet! Please add some.",
+    "products": "Products",
+    "none": "None",
+    "stock": "Stock",
+    "add-product": "Add product",
+    "product-image": "Product image",
+    "product-description": "Product description",
+    "name": "Name",
+    "description": "Description",
+    "upload-picture": "Upload picture"
   }
 }

@@ -17,3 +17,20 @@ button {
   font-family: "Mulish", sans-serif;
   font-weight: 700;
 }
+
+table {
+  width: 100%;
+  text-align: left;
+}
+
+table,
+th,
+td {
+  border: 1px solid #cacaca;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 15px;
+}

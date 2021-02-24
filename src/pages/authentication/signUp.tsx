@@ -1,4 +1,4 @@
-import { AuthenticationAPI, RegisterData } from "../../api/user";
+import { AuthenticationAPI, User } from "../../api/user";
 import { Button, Grid, Input } from "@12emake/design-system";
 import React, { useState } from "react";
 
@@ -20,7 +20,7 @@ const SignUp = () => {
   const authenticationApi: AuthenticationAPI = new AuthenticationAPI();
   const [registerSuccessful, setRegisterSuccessful] = useState(false);
 
-  const onSubmit = (data: RegisterData) => {
+  const onSubmit = (data: User) => {
     const register = async () => {
       await authenticationApi.registerUser(data).then((data: any) => {
         if (data.isError) {
