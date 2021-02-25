@@ -2,25 +2,23 @@ import {
   Button,
   Grid,
   Hidden,
-  Switch,
   useMediaQuery,
   useTheme,
 } from "@12emake/design-system";
-import React, { useEffect, useState } from "react";
-import { defaultBoxShadow, orange400, red400 } from "../../common/colors";
-import { isPokemonStorage, setIsPokemonStorage } from "../../storage/cardType";
+import React, { useEffect } from "react";
 import styled, { css } from "styled-components";
 
-import { BiBasketball } from "react-icons/bi";
-import { CgPokemon } from "react-icons/cg";
-import { IconContext } from "react-icons/lib";
 import { MainContainer } from "../../components/shared/mainContainer";
 import { NoDecorationLink } from "../../components/shared/noDecorationLink";
 import { Payment } from "../../components/shared/payment";
 import ReactTwitchEmbedVideo from "react-twitch-embed-video";
+import { RootState } from "../../rootState";
 import { Shop } from "./shop";
+import { TwitchSwitch } from "../../components/shared/twitchSwitch";
+import { defaultBoxShadow } from "../../common/colors";
 import shop from "../../routes/pages/shop";
 import { smSpacing } from "../../common/spacing";
+import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 
 const Home = () => {
@@ -30,7 +28,10 @@ const Home = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const isDark = theme.palette.type === "dark";
-  const [isPokemon, setIsPokemon] = useState(isPokemonStorage || true);
+
+  const { isPokemon } = useSelector((state: RootState) => ({
+    isPokemon: state.appContext.isPokemon,
+  }));
 
   useEffect(() => {
     const iframes = document.querySelectorAll("iframe");
@@ -46,36 +47,7 @@ const Home = () => {
       $horizontalCentered
       $isMobile={isMobile}
     >
-      <div className="twitch-switch">
-        {!isMobile && t("pokemon")}
-        <IconContext.Provider
-          value={{
-            size: "25px",
-            color: isPokemon ? red400 : undefined,
-            style: { marginLeft: "8px" },
-          }}
-        >
-          <CgPokemon />
-        </IconContext.Provider>
-        <StyledSwitch
-          $backgroundColor={theme.palette.secondary.main}
-          checked={!isPokemon}
-          onChange={() => {
-            setIsPokemonStorage(!isPokemon);
-            setIsPokemon(!isPokemon);
-          }}
-        />
-        <IconContext.Provider
-          value={{
-            size: "22px",
-            color: !isPokemon ? orange400 : undefined,
-            style: { marginRight: "8px" },
-          }}
-        >
-          <BiBasketball />
-        </IconContext.Provider>
-        {!isMobile && t("basketball")}
-      </div>
+      <TwitchSwitch />
       <Grid
         className="twitch-container"
         container
@@ -140,31 +112,11 @@ const Home = () => {
   );
 };
 
-type StyledSwitchProps = {
-  $backgroundColor: string;
-};
-
-const StyledSwitch = styled(Switch)<StyledSwitchProps>`
-  .MuiSwitch-thumb {
-    background-color: ${(props) => props.$backgroundColor};
-  }
-`;
-
 type StyledMainContainerProps = {
   $isMobile?: boolean;
 };
 
 const StyledMainContainer = styled(MainContainer)<StyledMainContainerProps>`
-  .twitch-switch {
-    font-size: 20px;
-    margin-top: 12px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-transform: uppercase;
-    font-weight: 900;
-  }
-
   .payment {
     display: flex:
     justify-content: center;
@@ -187,14 +139,6 @@ const StyledMainContainer = styled(MainContainer)<StyledMainContainerProps>`
       height: 100vh;
       overflow: auto;
       padding-top: 0;
-
-      .twitch-switch {
-        margin-top: 0;
-        position: absolute;
-        right: 12px;
-        top: calc(env(safe-area-inset-top) + 10px);
-        z-index: 99999;
-      }
 
       .twitch-container {
         margin-top: 8px;

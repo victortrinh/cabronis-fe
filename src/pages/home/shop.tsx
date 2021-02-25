@@ -10,15 +10,18 @@ import {
 import React, { ChangeEvent, useState } from "react";
 import { darkGray, lightBlack, minimalBoxShadow } from "../../common/colors";
 import { lgSpacing, xsSpacing } from "../../common/spacing";
+import styled, { css } from "styled-components";
 
 import { MainContainer } from "../../components/shared/mainContainer";
 import { NoDecorationLink } from "../../components/shared/noDecorationLink";
 import { Price } from "../../components/shared/price";
+import { RootState } from "../../rootState";
 import { Title } from "../../components/shared/title";
+import { TwitchSwitch } from "../../components/shared/twitchSwitch";
 import { cards } from "../../hardcode/cards";
 import faq from "../../routes/pages/faq";
 import item from "../../routes/pages/item";
-import styled from "styled-components";
+import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 
 type Props = {
@@ -27,6 +30,9 @@ type Props = {
 };
 
 export const Shop: React.FunctionComponent<Props> = ({ limit, title }) => {
+  const { isPokemon } = useSelector((state: RootState) => ({
+    isPokemon: state.appContext.isPokemon,
+  }));
   const [t] = useTranslation();
   const theme = useTheme();
   const isDark = theme.palette.type === "dark";
@@ -52,12 +58,18 @@ export const Shop: React.FunctionComponent<Props> = ({ limit, title }) => {
   };
 
   const innerContainer = (
-    <Container container justify="center" alignItems="center">
+    <Container
+      $isMobile={isMobile}
+      container
+      justify="center"
+      alignItems="center"
+    >
       {(limit || !isMobile) && (
         <Title showTitle className="title">
           {title || t("shop")}
         </Title>
       )}
+      {!limit && <TwitchSwitch />}
       {!limit && (
         <div className="search">
           <Input
@@ -78,6 +90,9 @@ export const Shop: React.FunctionComponent<Props> = ({ limit, title }) => {
         spacing={20}
       >
         {cards
+          .filter((x) =>
+            isPokemon ? x.theme === "pokemon" : x.theme !== "pokemon"
+          )
           .filter((x) =>
             searchTerm
               ? x.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1
@@ -129,7 +144,11 @@ export const Shop: React.FunctionComponent<Props> = ({ limit, title }) => {
   return <MainContainer $isMobile={isMobile}>{innerContainer}</MainContainer>;
 };
 
-const Container = styled(Grid)`
+type ContainerProps = {
+  $isMobile: boolean;
+};
+
+const Container = styled(Grid)<ContainerProps>`
   margin-top: ${lgSpacing};
   margin-bottom: ${lgSpacing};
   display: block;
@@ -139,8 +158,17 @@ const Container = styled(Grid)`
   }
 
   .search {
+    margin-top: 12px;
     margin-bottom: 32px;
   }
+
+  ${(props) =>
+    props.$isMobile &&
+    css`
+      .search {
+        margin-top: 0;
+      }
+    `}
 `;
 
 type StyledCardProps = {
