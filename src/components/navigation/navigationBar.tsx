@@ -111,7 +111,9 @@ export const NavigationBar: React.FC = () => {
           <Hidden smDown>
             <Link to="/">
               <img
-                src={`${process.env.PUBLIC_URL}/${LOGO_IMAGE_NAME}`}
+                data-sizes="auto"
+                data-src={`${process.env.PUBLIC_URL}/${LOGO_IMAGE_NAME}`}
+                className="lazyload"
                 alt={t("home")}
               />
             </Link>
@@ -119,7 +121,9 @@ export const NavigationBar: React.FC = () => {
           <Hidden mdUp>
             {isHome ? (
               <img
-                src={`${process.env.PUBLIC_URL}/${LOGO_IMAGE_NAME}`}
+                data-sizes="auto"
+                data-src={`${process.env.PUBLIC_URL}/${LOGO_IMAGE_NAME}`}
+                className="lazyload"
                 alt={t("home")}
               />
             ) : (

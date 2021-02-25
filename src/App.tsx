@@ -1,4 +1,6 @@
 import "./App.css";
+import "lazysizes";
+import "lazysizes/plugins/parent-fit/ls.parent-fit";
 
 import React, { useEffect, useState } from "react";
 import { ThemeProvider, useMediaQuery } from "@12emake/design-system";

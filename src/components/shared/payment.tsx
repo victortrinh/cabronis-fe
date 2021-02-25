@@ -33,20 +33,23 @@ export const Payment: React.FunctionComponent = () => {
           rel="noreferrer"
         >
           <img
-            src={`${process.env.PUBLIC_URL}/${PAYPAL_LOGO}`}
-            alt="Paypal"
+            data-src={`${process.env.PUBLIC_URL}/${PAYPAL_LOGO}`}
+            className="lazyload"
             width="80px"
             height="auto"
+            alt="Paypal"
           />
           paypal.me/PSCChato
         </a>
         <div className="payment-subtitle">{t("pay-by-interac")}</div>
         <div className="e-transfer link" onClick={copyToClipboard}>
           <img
-            src={`${process.env.PUBLIC_URL}/${ETRANSFER_LOGO}`}
-            alt="Paypal"
+            data-sizes="auto"
+            data-src={`${process.env.PUBLIC_URL}/${ETRANSFER_LOGO}`}
+            className="lazyload"
             width="80px"
             height="auto"
+            alt="Paypal"
           />
           paulmechato01_2@hotmail.com
         </div>
@@ -66,20 +69,24 @@ export const Payment: React.FunctionComponent = () => {
           rel="noreferrer"
         >
           <img
-            src={`${process.env.PUBLIC_URL}/${PAYPAL_LOGO}`}
-            alt="Paypal"
+            data-sizes="auto"
+            data-src={`${process.env.PUBLIC_URL}/${PAYPAL_LOGO}`}
+            className="lazyload"
             width="80px"
             height="auto"
+            alt="Paypal"
           />
           paypal.me/R3yElvis
         </a>
         <div className="payment-subtitle">{t("pay-by-interac")}</div>
         <div className="e-transfer link" onClick={copyToClipboard}>
           <img
-            src={`${process.env.PUBLIC_URL}/${ETRANSFER_LOGO}`}
-            alt="Paypal"
+            data-sizes="auto"
+            data-src={`${process.env.PUBLIC_URL}/${ETRANSFER_LOGO}`}
+            className="lazyload"
             width="80px"
             height="auto"
+            alt="Paypal"
           />
           elvis_reynoso@hotmail.ca
         </div>

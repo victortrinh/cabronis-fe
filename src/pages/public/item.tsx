@@ -61,7 +61,8 @@ const Item: React.FC = () => {
         <Grid container>
           <Grid className="image" item xs={12} sm={12} md={6}>
             <img
-              src={item.image_path}
+              data-src={item.image_path}
+              className="lazyload"
               alt={item.name}
               width="90%"
               height="auto"

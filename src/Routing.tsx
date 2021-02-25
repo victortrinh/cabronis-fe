@@ -50,7 +50,9 @@ const Routing: React.FC<Props> = ({ darkModeOn, height, toggleDarkModeOn }) => {
               <div className="app-icon-skeleton-lighter" />
               <div className="app-icon-skeleton" />
               <img
-                src={`${process.env.PUBLIC_URL}/${LOGO_IMAGE_NAME}`}
+                data-sizes="auto"
+                data-src={`${process.env.PUBLIC_URL}/${LOGO_IMAGE_NAME}`}
+                className="lazyload"
                 alt="Application"
               />
               <div className="app-icon-skeleton" />

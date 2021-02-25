@@ -77,7 +77,8 @@ const Cart = () => {
           <Grid container key={item.sellable_id} className="item-container">
             <Grid item xs={3} sm={4} md={3}>
               <img
-                src={item.image_path}
+                data-src={item.image_path}
+                className="lazyload"
                 alt={item.name}
                 width="100%"
                 height="auto"
